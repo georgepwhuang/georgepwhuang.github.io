@@ -756,4 +756,11 @@
 
 		});
 
+	window.onload = function() {
+		var a = document.getElementById("top");
+		a.onclick = function() {
+			Fancybox.close();
+		}
+	}
+
 })(jQuery);
