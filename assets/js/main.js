@@ -52,12 +52,6 @@
 				var $nav_a = $nav.find('a');
 
 				$nav_a
-					.scrolly({
-						speed: 1000,
-						offset: function() { 
-							return $nav.height();
-						}
-					})
 					.on('click', function() {
 
 						var $this = $(this);
@@ -192,25 +186,35 @@
 			speed: 1000
 		});
 
+		function reveal() {
+			var reveals = document.querySelectorAll(".reveal");
+			for (var i = 0; i < reveals.length; i++) {
+			  var windowHeight = window.innerHeight;
+			  var elementTop = reveals[i].getBoundingClientRect().top;
+			  var elementVisible = 150;
+			  if (elementTop < windowHeight - elementVisible) {
+				reveals[i].classList.add("alive");
+			  } else {
+				reveals[i].classList.remove("alive");
+			  }
+			}
+		  }
+		
+		  window.addEventListener("scroll", reveal);
+		
+		
+		
+		  // To check the scroll position on page load
+		  reveal();
+		
+		
+		  $(document).on('click', 'a[href^="#"]', function (event) {
+			event.preventDefault();
+		
+			$('html, body').animate({
+				scrollTop: $($.attr(this, 'href')).offset().top
+			}, 1000);
+		});
+
 })(jQuery);
 
-function reveal() {
-	var reveals = document.querySelectorAll(".reveal");
-	for (var i = 0; i < reveals.length; i++) {
-	  var windowHeight = window.innerHeight;
-	  var elementTop = reveals[i].getBoundingClientRect().top;
-	  var elementVisible = 150;
-	  if (elementTop < windowHeight - elementVisible) {
-		reveals[i].classList.add("alive");
-	  } else {
-		reveals[i].classList.remove("alive");
-	  }
-	}
-  }
-
-  window.addEventListener("scroll", reveal);
-
-
-
-  // To check the scroll position on page load
-  reveal();

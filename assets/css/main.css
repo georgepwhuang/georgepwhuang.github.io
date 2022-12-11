@@ -3088,6 +3088,7 @@ input, select, textarea {
 	#header {
 		padding: 5em 5em 1em 5em ;
 		text-align: center;
+		min-height: 100vh;
 	}
 
 		#header h1 {
@@ -3135,7 +3136,8 @@ input, select, textarea {
 				#header.alt .logo img {
 					display: block;
 					margin: 0 auto;
-					max-width: 40vmin;
+					height: 35vh;
+					max-height:70vw;
 				}
 
 		@media screen and (max-width: 1280px) {
