@@ -2366,6 +2366,11 @@ input, select, textarea {
 		width: 100%;
 		max-width: 75vmin;
 	}
+	.icon.fitbit:hover {
+		transform: scale(1.1);
+		opacity: 0.75;
+		transition: 0.5s all ease;
+	}
 
 /* Image */
 
@@ -5282,3 +5287,31 @@ input, select, textarea {
   .reveal.alive{
 	opacity: 1;
   }
+
+#scroll-down{
+position: absolute;
+  -webkit-transform: translate(-50%, 0%);
+  -moz-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+  -webkit-animation: fade_move_down 2s ease-in-out infinite;
+  -moz-animation:    fade_move_down 2s ease-in-out infinite;
+  animation:         fade_move_down 2s ease-in-out infinite;
+}
+
+
+/*animated scroll arrow animation*/
+@-webkit-keyframes fade_move_down {
+  0%   { -webkit-transform:translate(0,-10px);opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -webkit-transform:translate(0,10px); opacity: 0; }
+}
+@-moz-keyframes fade_move_down {
+  0%   { -moz-transform:translate(0,-10px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -moz-transform:translate(0,10px); opacity: 0; }
+}
+@keyframes fade_move_down {
+  0%   { transform:translate(0,-10px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { transform:translate(0,10px); opacity: 0; }
+}
