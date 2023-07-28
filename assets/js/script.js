@@ -176,7 +176,7 @@ function copyText() {
   var copyText = modalText.textContent;
 
    // Copy the text inside the text field
-   copyToClipboard(copyText);
+   copyToClipboard(copyText.trim());
 
   // Alert the copied text
   alert("BibTeX copied!");
