@@ -226,6 +226,8 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   color: white;
 }
 
+.outfoot {display: none}
+
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -1322,8 +1324,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .project-img,
   .blog-banner-box { height: auto; }
-
-  .outfoot {display: none}
 
 }
 
