@@ -215,7 +215,7 @@ function findAux(item) {
           id + ' onclick="toggle(this)">[abs]</a></span>');
           item.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre>');
         } else {
-          item.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" href='+ itemData[key] +' role="button">['+
+          item.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">['+
           key +']</a></span>');
         }
     }
