@@ -198,7 +198,27 @@ function download() {
 }
 
 function toggle(item) {
-  console.log(item.innerHTML);
   id = item.getAttribute("key");
   document.getElementById("bib"+id).classList.toggle("active");
+}
+
+const auxData = fetch(document.getElementById("aux").getAttribute("src")).then(response => {return response.json();})
+
+function findAux(item) {
+  auxData.then(auxDict => {
+  id = item.querySelector(".entry").getAttribute("key");
+  itemData = auxDict[id];
+  for (const key in itemData) {
+    if (itemData.hasOwnProperty(key)) {
+        if (key == "abs") {
+          item.querySelector(".clickables").insertAdjacentHTML("afterbegin", '<span><a class="link" target="_self" role="button" key='+ 
+          id + ' onclick="toggle(this)">[abs]</a></span>');
+          item.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre>');
+        } else {
+          item.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" href='+ itemData[key] +' role="button">['+
+          key +']</a></span>');
+        }
+    }
+    }
+  })
 }

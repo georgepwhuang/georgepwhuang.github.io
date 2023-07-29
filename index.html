@@ -447,11 +447,12 @@
         </div>
 
         <div id="bibtex_display">
-          <div class="bibtex_template" style="display: none;">
+          <div class="bibtex_template" style="display: none;" callback="findAux(bibtexentry)">
             <ul> <li>
+              <span class="bibtexVar entry" style="display: none;" key="+BIBTEXKEY+" extra="BIBTEXKEY"></span>
               <span class="if title"><b><span class="title"></span></b></span>
               <div class="if author">
-                <i><span class="author"></span></i>
+                <i><span class="author" conjunction=" and"></span></i>
               </div>
               <div>
                 <span class="if journal"><span class="journal"></span>,</span>
@@ -462,10 +463,7 @@
                 <span class="if primaryclass">[<span class="primaryclass"></span>]</span>
                 <span class="if year"><span class="year"></span>.</span>
               </div>
-              <div>
-                <span class="if abstract"><a class="bibtexVar link" target="_self" role="button" key="+BIBTEXKEY+" onclick="toggle(this)" extra="BIBTEXKEY">[abs]
-                </a></span>
-                
+              <div class="clickables">
                 <span> <a class="link" target="_self" role="button" onclick="loadModal(this)">[bib]
                   <div style="display:none" data-testimonials-title><span class="title"></span></div>
                   <div style="display:none" data-testimonials-text>
@@ -475,15 +473,14 @@
 
                 <span class="if url"><a class="url link" role="button">[link]</a></span>
                 <span class="if !url"><span class="if doi">
-                  <a class="bibtexVar link"  href="http://dx.doi.org/+DOI+" extra="doi">[link]</a>
+                  <a class="bibtexVar link" href="http://dx.doi.org/+DOI+" extra="doi">[link]</a>
                 </span></span>
                 <span class="if !url"><span class="if !doi"><span class="if eprint">
-                  <a class="bibtexVar link"  href="https://arxiv.org/abs/+EPRINT+" extra="eprint">[link]</a>
+                  <a class="bibtexVar link" href="https://arxiv.org/abs/+EPRINT+" extra="eprint">[link]</a>
                 </span></span></span>
               </div>
-              <div class="if abstract">
+              <div>
                 <div class="bibtexVar abs" id="bib+BIBTEXKEY+" extra="BIBTEXKEY">
-                  <pre><span class="abstract"></span></pre>
                 </div>
               </div>
             </li></ul>
@@ -533,14 +530,15 @@
 
   </footer>
 
-
+  
 
 
   <!--
     - custom js link
   -->
+  <i id="aux" style="display: none" src="https://georgepwhuang.github.io/assets/json/aux.json"></i>
   <script src="./assets/js/bibtex_js.js"></script>
-  <bibtex src="./files/publications.bib"></bibtex>
+  <bibtex src="https://georgepwhuang.github.io/files/publications.bib"></bibtex>
   <script src="./assets/js/script.js"></script>
   <script src="//clustrmaps.com/globe.js?d=RqR0-tM_DVHQvWiaE4Tf3z1GNHZmopCIm2IAW2lkG3k"></script>
 </body>

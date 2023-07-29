@@ -613,9 +613,6 @@ function createWebPage(t) {
         0 == $(".bibtex_template").length && $("body").append(t),
         bibtex_js_draw()
     })
-    var script = document.getElementById('main-script');
-    script.setAttribute("src",script.getAttribute("data-src"));
-    script.removeAttribute("data-src");
 }
 function loadExtras() {
     BibTeXSearcherClass = new BibTeXSearcher,
