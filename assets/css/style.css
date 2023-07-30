@@ -228,6 +228,9 @@ body { background: var(--smoky-black); color: var(--light-gray);}
 
 .outfoot {display: none}
 
+.author {
+  color: var(--vegas-gold)
+}
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -834,6 +837,12 @@ main {
 
 
 
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
 
 
 /*-----------------------------------*\
