@@ -222,3 +222,7 @@ function findAux(item) {
     }
   })
 }
+
+Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
+  element.innerHTML= new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric"});
+});
