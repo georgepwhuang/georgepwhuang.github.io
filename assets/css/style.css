@@ -176,6 +176,13 @@ div.abs.active {
 
 ul { list-style: none; }
 
+ul.list {
+  list-style-type: disc; 
+  list-style-position: inside;
+  text-indent: -16px; 
+  margin-left: 20px;
+}
+
 ol { list-style: none; }
 
 img, button { display: block; }
