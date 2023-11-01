@@ -179,7 +179,7 @@ ul { list-style: none; }
 ul.list {
   list-style-type: disc; 
   list-style-position: inside;
-  text-indent: -16px; 
+  text-indent: -20px; 
   margin-left: 20px;
 }
 
