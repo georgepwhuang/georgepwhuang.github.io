@@ -206,21 +206,26 @@ const auxData = fetch(document.getElementById("aux").getAttribute("src")).then(r
 
 function findAux(item) {
   auxData.then(auxDict => {
-  id = item.querySelector(".entry").getAttribute("key");
+    console.log(item.querySelectorAll(".bibitem"));
+ item.querySelectorAll(".bibitem").forEach(entry => {
+
+  id = entry.querySelector(".entry").getAttribute("key");
   itemData = auxDict[id];
   for (const key in itemData) {
     if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
-          item.querySelector(".clickables").insertAdjacentHTML("afterbegin", '<span><a class="link" target="_self" role="button" key='+ 
+          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", '<span><a class="link" target="_self" role="button" key='+ 
           id + ' onclick="toggle(this)">[abs]</a></span> ');
-          item.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
+          
+          entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
         } else {
-          item.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">['+
+          entry.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">['+
           key +']</a></span> ');
         }
     }
     }
-  })
+ })
+})
 }
 
 Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
