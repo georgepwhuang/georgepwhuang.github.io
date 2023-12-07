@@ -56,7 +56,7 @@
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-          <i class="fa-solid fa-chevron-down"></i>
+          <i class="fa-solid fa-bars"></i>
         </button>
 
       </div>
@@ -168,7 +168,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Publications</button>
+            <button class="navbar-link" data-nav-link>Papers</button>
           </li>
 
           <li class="navbar-item">
@@ -295,7 +295,7 @@
               <span>Centre for Quantum Technologies, May 2023 — Present</span>
 
               <ul class="timeline-text list">
-                <li>Quantum algorithms and quantum machine learning</li>
+                <li>Quantum algorithms for QML and optimization</li>
                 <li>Principal Investigator: Prof. Patrick Rebentrost</li>
               </ul> 
 
@@ -390,18 +390,31 @@
       </article>
 
       <!--
-        - #PUBLICATIONS
+        - #PAPERS
       -->
 
-      <article data-page="publications">
+      <article data-page="papers">
 
         <header>
-          <h2 class="h2 article-title">Publications</h2>
+          <h2 class="h2 article-title">Papers</h2>
         </header>
         <section class="biblist">
         <div class="bibtex_structure">
-          <div class="sort year" extra="DSC number">
-                <div class="templates"></div>
+          <div class="sections bibtextypekey">
+            <section>
+            <div class="section misc about-text">
+              <h3 class="h3" style="margin: 10px 0px">Preprints <i class="ai ai-arxiv" style="color: var(--orange-yellow-crayola)"></i></h3>
+                <div class="sort year" extra="DSC number">
+                      <div class="templates"></div>
+                </div>
+            </div>
+          </section>
+            <div class="section article|inproceedings about-text" style="margin-bottom:20px;">
+              <h3 class="h3" style="margin: 10px 0px">Publications <i class="fa-solid fa-file-invoice" style="color: var(--orange-yellow-crayola)"></i></h3>
+                <div class="sort year" extra="DSC number">
+                      <div class="templates"></div>
+                </div>
+            </div>
           </div>
         </div>
 
@@ -409,7 +422,7 @@
           <div class="bibtex_template" style="display: none;" callback="findAux(bibtexentry)">
             <ul> <li>
               <span class="bibtexVar entry" style="display: none;" key="+BIBTEXKEY+" extra="BIBTEXKEY"></span>
-              <span class="if title"><h3><span class="title"></span></h3></span>
+              <span class="if title"><h4><span class="title"></span></h4></span>
               <div class="if author">
                 <span class="author" conjunction=" and"></span>
               </div>
