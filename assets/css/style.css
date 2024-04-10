@@ -2,14 +2,9 @@
   #style.css
 \*-----------------------------------*/
 
-
 /**
  * copyright 2022 @codewithsadee
  */
-
-
-
-
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -68,6 +63,7 @@
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --nav-bar: hsla(240, 1%, 17%, 0.95);
 
   /**
    * typography
@@ -405,6 +401,7 @@ main {
   max-height: 112px;
   overflow: hidden;
   transition: var(--transition-2);
+  position: sticky;
 }
 
 .sidebar.active { max-height: 405px; }
@@ -545,7 +542,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
+  background: var(--nav-bar);
   backdrop-filter: blur(10px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
@@ -912,7 +909,7 @@ main {
   width: 6px;
   background: var(--text-gradient-yellow);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--jet);
+  box-shadow: 0 0 0 4px var(--onyx);
 }
 
 .timeline-text {
@@ -1769,7 +1766,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
 
-
   /**
    * MAIN 
    */
@@ -1886,7 +1882,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   article { min-height: 100%; }
 
-
+  #mode-toggle-btn {
+    position: absolute;
+    bottom: auto;
+    top: 10px;
+  }
 
   /**
    * MAIN
@@ -1914,7 +1914,6 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar {
-    position: sticky;
     top: 60px;
     max-height: max-content;
     height: 100%;
@@ -1925,7 +1924,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { flex-direction: column; }
 
-  .avatar-box img { width: 150px; }
+
+  .avatar-box img { width: 150px;}
 
   .info-content .name {
     white-space: nowrap;
@@ -1972,3 +1972,106 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 }
 
+/* Dark mode Light mode */
+
+#mode-toggle-btn {
+  height: 25px;
+  width: 45px;
+  overflow: hidden;
+  padding-inline: 0px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  transition: var(--transition-2);
+  background: var(--smoky-black);
+  border-radius: 20px;
+  border: solid 1px var(--jet);
+}
+.toggle-mode {
+  background: var(--eerie-black-2);
+  color: var(--vegas-gold);
+  display: flex;
+  border-radius: inherit;
+  justify-content: center;
+  border: 1px solid var(--jet);
+  padding: 4px;
+  transform: translateX(20px);
+  transition: var(--transition-1);
+}
+.toggle-mode img {
+  height: 10px;
+}
+
+.toggle-mode.light-mode {
+  transform: translateX(0);
+  transition: 0.3s ease-in-out;
+}
+
+article {
+  display: none;
+}
+
+article.active {
+  display: block;
+  animation: fade 0.5s ease backwards;
+}
+
+/*-----------------------------------*\
+  #APPLAYING LIGHT MODE
+\*-----------------------------------*/
+
+.light-mode {
+  --jet: #526D82; /*border*/
+  --onyx: #DBE2EF; /*tag-bg*/
+  --eerie-black-1: #f1f4f9; /*icon-bg*/
+  --eerie-black-2: #ffffff; /*inner-bg*/
+  --smoky-black: #eeeeee; /*outer-bg*/
+  --white-1: #222222; /*tag-text*/
+  --white-2: #000000; /*title*/
+  --orange-yellow-crayola: #3265b2; /*logo-color*/
+  --vegas-gold: #065fd4; /*subtitle*/
+  --light-gray: #111111; /*main-text*/
+  --light-gray-70: #28518f; /*side-bar-logo*/
+  --nav-bar:  hsla(0, 0%, 98%, 0.95);
+
+  --bg-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(36, 46%, 75%) 3%,
+    hsl(50, 43%, 68%) 97%
+  );
+
+  --bg-gradient-jet: linear-gradient(
+    to bottom right, 
+    #DBE2EF 0%, 
+    #ffffff 100%
+  ), hsl(0, 0%, 87%);
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    #214475 3%,
+    #ffffff 97%
+  );
+  --bg-gradient-yellow-2: linear-gradient(
+    to bottom right,
+    #c3d0e3 3%,
+    #DBE2EF 97%
+  );
+  --border-gradient-onyx: linear-gradient(
+    to bottom right,
+    #6597e0 3%,
+    #DBE2EF 97%
+  );/*icon-border*/
+  --text-gradient-yellow: linear-gradient(
+    to right,
+    #214475,#254c84 29%,#6597e0 97%
+  );
+
+  --shadow-1: 0px 4px 14px hsla(0, 0%, 0%, 0.1);
+  --shadow-2: -4px 8px 24px hsla(0, 0%, 0%, 0.1);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.1);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.05);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.1);
+
+  background-color:var(--smoky-black);
+}

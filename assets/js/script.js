@@ -3,6 +3,43 @@ for(var i = 0; i < links.length; i++){
   links[i].target = "_blank";
 }
 
+// Applying Light mode...
+const modeToggleBtn = document.getElementById("mode-toggle-btn");
+const modeBtn = document.getElementById("mood-btn");
+const modeIcon = document.getElementById("mood-icon");
+const lightModeKey = "light-mode";
+
+const updateLightMode = (enabled) => {
+  // 1. Toggle the class on the body
+  document.body.classList.toggle("light-mode", enabled);
+  modeBtn.classList.toggle("light-mode", enabled);
+  if (enabled){
+    modeIcon.classList.remove("fa-moon");
+    modeIcon.classList.add("fa-sun");
+  }
+  else {
+    modeIcon.classList.remove("fa-sun");
+    modeIcon.classList.add("fa-moon");
+  }
+
+  // 2. Update lightMode in localStorage
+  localStorage.setItem(lightModeKey, enabled ? "enabled" : null);
+};
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  updateLightMode(true);
+}
+  
+
+// Initialize light mode based on localStorage
+updateLightMode(localStorage.getItem(lightModeKey) === "enabled");
+
+// Toggle light mode when the button is clicked
+modeToggleBtn.addEventListener("click", () => {
+  // Toggle the current lightMode setting
+  updateLightMode(localStorage.getItem(lightModeKey) !== "enabled");
+});
+
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
