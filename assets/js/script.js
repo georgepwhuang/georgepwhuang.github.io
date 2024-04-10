@@ -23,16 +23,17 @@ const updateLightMode = (enabled) => {
   }
 
   // 2. Update lightMode in localStorage
-  localStorage.setItem(lightModeKey, enabled ? "enabled" : null);
+  localStorage.setItem(lightModeKey, enabled ? "enabled" : "disabled");
 };
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-  updateLightMode(true);
+if (!localStorage.getItem(lightModeKey)){
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    updateLightMode(true);
+  } 
 }
-  
-
-// Initialize light mode based on localStorage
-updateLightMode(localStorage.getItem(lightModeKey) === "enabled");
+else {
+  updateLightMode(localStorage.getItem(lightModeKey) === "enabled");
+}
 
 // Toggle light mode when the button is clicked
 modeToggleBtn.addEventListener("click", () => {
