@@ -307,9 +307,7 @@ function decodeEmail(encodedString) {
 
 var protectedElements = document.getElementsByClassName("protected");
 for (var i = 0; i < protectedElements.length; i++) {
-  protectedElements[i].addEventListener("mouseover", function () { 
-    var encoded = this.getAttribute("eml");
+    var encoded = protectedElements[i].getAttribute("eml");
     var decoded = decodeEmail(encoded);
-    this.href = 'mailto:' + decoded;
-  }, {once : true});
+    protectedElements[i].href = 'mailto:' + decoded;
 }
