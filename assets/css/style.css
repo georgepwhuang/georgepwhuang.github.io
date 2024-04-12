@@ -52,8 +52,8 @@
   /* solid */
 
   --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
+  --onyx: hsl(240, 1%, 22%);
+  --eerie-black-1: hsl(240, 2%, 15%);
   --eerie-black-2: hsl(240, 2%, 12%);
   --smoky-black: hsl(0, 0%, 7%);
   --white-1: hsl(0, 0%, 100%);
@@ -896,7 +896,7 @@ main {
   left: -30px;
   width: 1px;
   height: calc(100% + 50px);
-  background: var(--jet);
+  background: var(--onyx);
 }
 
 .timeline-item::after {
