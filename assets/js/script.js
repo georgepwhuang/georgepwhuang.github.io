@@ -221,8 +221,8 @@ function copyText() {
 }
 
 function download() {
-  var filename = modalTitle.textContent.toLocaleLowerCase().replaceAll(" ", "_")+".bib";
   var text = modalText.textContent.trim();
+  var filename = text.split(",")[0].split("{")[1]+".bib";
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
