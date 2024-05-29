@@ -252,13 +252,14 @@ function findAux(item) {
   for (const key in itemData) {
     if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
-          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", '<span><a class="link" target="_self" role="button" key='+ 
-          id + ' onclick="toggle(this)">[abs]</a></span> ');
+          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", 
+          '<span><a class="link" target="_self" role="button" key='+ id + ' onclick="toggle(this)">abs</a></span> ');
           
           entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
         } else {
-          entry.querySelector(".clickables").insertAdjacentHTML("beforeend", '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">['+
-          key +']</a></span> ');
+          entry.querySelector(".clickables").insertAdjacentHTML("beforeend", 
+          '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">'+
+          key +'</a></span> ');
         }
     }
     }

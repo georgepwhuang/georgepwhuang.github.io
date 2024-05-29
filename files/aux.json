@@ -1,4 +1,7 @@
 {
+  "huang2024quantum": {
+    "abs": "Classical algorithms for market equilibrium computation such as proportional response dynamics face scalability issues with Internet-based applications such as auctions, recommender systems, and fair division, despite having an almost linear runtime in terms of the product of buyers and goods. In this work, we provide the first quantum algorithm for market equilibrium computation with sub-linear performance. Our algorithm provides a polynomial runtime speedup in terms of the product of the number of buyers and goods while reaching the same optimization objective value as the classical algorithm. Numerical simulations of a system with 16384 buyers and goods support our theoretical results that our quantum algorithm provides a significant speedup."
+  },
   "huang2023hybrid": {
     "abs": "Solving linear systems is of great importance in numerous fields. In particular, circulant systems are especially valuable for efficiently finding numerical solutions to physics-related differential equations. Current quantum algorithms like HHL or variational methods are either resource-intensive or may fail to find a solution. We present an efficient algorithm based on convex optimization of combinations of quantum states to solve for banded circulant linear systems whose non-zero terms are within distance K of the main diagonal. By decomposing banded circulant matrices into cyclic permutations, our approach produces approximate solutions to such systems with a combination of quantum states linear to K, significantly improving over previous convergence guarantees, which require quantum states exponential to K. We propose a hybrid quantum-classical algorithm using the Hadamard test and the quantum Fourier transform as subroutines and show its PromiseBQP-hardness. Additionally, we introduce a quantum-inspired algorithm with similar performance given sample and query access. We validate our methods with classical simulations and actual IBM quantum computer implementation, showcasing their applicability for solving physical problems such as heat transfer.",
     "code": "https://github.com/LiXiufan/qa-cqs-circulant",
@@ -11,6 +14,7 @@
   },
   "huang2022domain": {
     "abs": "Current neural network solutions in scientific document processing employ models pretrained on domain-specific corpi, which are usually limited in model size, as pretraining can be costly and limited by training resources. We introduce a framework that uses data augmentation from such domain-specific pretrained models to transfer domain specific knowledge to larger general pretrained models and improve performance on downstream tasks. Our method improves the performance of Named Entity Recognition in the astrophysical domain by more than 20% compared to domain-specific pretrained models finetuned to the target dataset.",
+    "code": "https://github.com/georgepwhuang/wiesp-deal",
     "video": "https://www.youtube.com/watch?v=Cu0ympJQrTc",
     "poster": "./files/poster/deal_poster.pdf"
   },

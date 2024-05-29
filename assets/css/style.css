@@ -165,10 +165,10 @@
 a { text-decoration: none; }
 
 a.link {
-  -moz-transition: color 0.2s ease, border-bottom 0.2s ease;
-  -webkit-transition: color 0.2s ease, border-bottom 0.2s ease;
-  -ms-transition: color 0.2s ease, border-bottom 0.2s ease;
-  transition: color 0.2s ease, border-bottom 0.2s ease;
+  -moz-transition: color 0.3s ease, border-bottom 0.3s ease;
+  -webkit-transition: color 0.3s ease, border-bottom 0.3s ease;
+  -ms-transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
   text-decoration: none;
   border-bottom: dotted 1px;
   color: inherit;
@@ -176,6 +176,7 @@ a.link {
 
 a.link:hover {
   border-bottom-color: transparent;
+  color: var(--orange-yellow-crayola);
 }
 
 b {
@@ -832,8 +833,8 @@ main {
   right: 15px;
   background: var(--onyx);
   border-radius: 8px;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -857,7 +858,8 @@ main {
 
 .modal-img-wrapper > img { display: none; }
 
-.modal-title { margin-bottom: 4px; }
+.modal-title { margin-bottom: 12px; 
+  margin-right: 28px;}
 
 .modal-content time {
   font-size: var(--fs-6);
@@ -2130,6 +2132,42 @@ article.active {
 
   background-color:var(--smoky-black);
 }
+
+.clickables .link {
+  white-space: nowrap;
+}
+
+.clickables .link:before {
+  content: "[";
+  margin-right: 3px;
+  display: inline-block;
+  -webkit-transform: translateX(3px);
+  -moz-transform: translateX(3px);
+  transform: translateX(3px);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.clickables .link:after {
+  content: "]";
+  margin-left: 3px;
+  display: inline-block;
+  -webkit-transform: translateX(-3px);
+  -moz-transform: translateX(-3px);
+  transform: translateX(-3px);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.clickables .link:hover:before,
+.clickables .link:hover:after {
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
 
 [class="Po-Wei Huang"] {
   font-weight: 500;
