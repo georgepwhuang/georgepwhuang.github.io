@@ -278,13 +278,13 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   border-radius: 8px;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: var(--light-gray-70);
-  color: var(--smoky-black)
+  background-color: var(--light-gray);
+  color: var(--eerie-black-1)
 }
 
 .clickButton:hover {
   background-color: var(--vegas-gold);
-  color: white;
+  color: whitesmoke;
 }
 
 .outfoot {display: none}
@@ -595,11 +595,18 @@ main {
 
 .social-item .social-link {
   color: var(--light-gray-70);
+  display: block;
   font-size: 18px;
 }
 
 
-.social-item .social-link:hover { color: var(--light-gray); }
+.social-item .social-link:hover { 
+  color: var(--light-gray); 
+  transform: scale(1.2);
+  -ms-transform: scale(1.2); 
+  -moz-transform: scale(1.2); 
+  -webkit-transform: scale(1.2); 
+}
 
 
 
@@ -1089,7 +1096,9 @@ main {
   border-radius: 8px;
 }
 
-.select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
+.select-item button:hover { 
+  --eerie-black-2: hsl(240, 2%, 20%); 
+}
 
 .project-list {
   display: grid;
@@ -2042,7 +2051,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center;
   position: absolute;
   right: 10px;
-  bottom: 10px;
+  bottom: 15px;
   transition: var(--transition-2);
   background: var(--vegas-gold);
   border-radius: 20px;
@@ -2083,16 +2092,16 @@ article.active {
 
 .light-mode {
   --jet: #526D82; /*border*/
-  --onyx: #DBE2EF; /*tag-bg*/
+  --onyx: #e7f0ff; /*tag-bg*/
   --eerie-black-1: #f1f4f9; /*icon-bg*/
   --eerie-black-2: #fff; /*inner-bg*/
   --smoky-black: #eee; /*outer-bg*/
-  --white-1: #222; /*tag-text*/
+  --white-1: #111; /*tag-text*/
   --white-2: #000; /*title*/
   --orange-yellow-crayola: #065fd4; /*logo-color*/
   --vegas-gold: #3265b2; /*subtitle*/
-  --light-gray: #444; /*main-text*/
-  --light-gray-70: #28518f; /*side-bar-logo*/
+  --light-gray: #222; /*main-text*/
+  --light-gray-70: rgb(109, 124, 148); /*side-bar-logo*/
   --nav-bar:  hsla(0, 0%, 98%, 0.95);
 
   --bg-gradient-onyx: linear-gradient(
@@ -2137,6 +2146,7 @@ article.active {
 
 .clickables .link {
   white-space: nowrap;
+  color: var(--light-gray-70)
 }
 
 .clickables .link:before {
