@@ -11,16 +11,18 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
 
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.min.css">
-  <link rel="stylesheet" href="./assets/css/solid.min.css">
-  <link rel="stylesheet" href="./assets/css/brands.min.css">
-  <link rel="stylesheet" href="./assets/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/assets/css/solid.min.css">
+  <link rel="stylesheet" href="/assets/css/brands.min.css">
+  <link rel="stylesheet" href="/assets/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700" rel="stylesheet">
 </head>
 
 <body>
@@ -46,7 +48,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./images/portrait.jpg" style="border-radius: 10%" alt="George Huang" width="80">
+          <img src="/images/portrait.jpg" style="border-radius: 10%" alt="George Huang" width="80">
         </figure>
 
         <div class="info-content">
@@ -113,7 +115,7 @@
           </li>
 
           <li class="social-item">
-            <a href="https://twitter.com/georgepwhuang"   class="social-link">
+            <a href="https://x.com/georgepwhuang"   class="social-link">
               <i class="fa-brands fa-x-twitter"></i>
             </a>
           </li>
@@ -390,14 +392,14 @@
                 <span class="author" conjunction=" and"></span>
               </div>
               <div style="margin-bottom:3px">
-                <span class="if journal"><span class="journal"></span>,</span>
-                <span class="if booktitle">In <span class="booktitle"></span>,</span>
-                <span class="if publisher"><span class="publisher"></span>,</span>
+                <span class="if journal"><span class="journal"></span></span>
+                <span class="if volume"><b><span class="volume"></span></b><span class="if pages">,</span></span>
+                <span class="if booktitle">In <span class="booktitle"></span><span class="if pages">,</span></span>
+                <span class="if pages"><span class="pages"></span></b></span>
                 <span class="if archiveprefix"><span class="archiveprefix"></span> preprint:</span>
                 <span class="if eprint"><span class="eprint"></span></span>
-                <span class="if primaryclass">[<span class="primaryclass"></span>],</span>
-                <span class="if month"><span class="month"></span></span>
-                <span class="if year"><span class="year"></span>.</span>
+                <span class="if primaryclass">[<span class="primaryclass"></span>]</span>
+                <span class="if year">(<span class="year"></span>).</span>
               </div>
               <div class="clickables mono">
                 <span target="_self" role="button" onclick="loadModal(this)">
@@ -534,8 +536,7 @@
   </main>
 
   <footer>
-    <div id="aux" style="display: none" src="https://georgepwhuang.github.io/files/aux.json"></div>
-    <bibtex style="display: none" src="https://georgepwhuang.github.io/files/publications.bib"></bibtex>
+    <bibtex style="display: none" src="/files/publications.bib"></bibtex>
     <p class="copyright outfoot">
       &copy; Po-Wei Huang | Design modified from <a href="https://github.com/codewithsadee/vcard-personal-portfolio" class="link" >codewithsadee</a> | Last updated: <span class="last-modified"></span>
     </p>
@@ -545,8 +546,8 @@
     - custom js scripts
   -->
   <script type="text/javascript" src="https://clustrmaps.com/globe.js?d=RqR0-tM_DVHQvWiaE4Tf3z1GNHZmopCIm2IAW2lkG3k"></script>
-  <script src="./assets/js/bibtex_js.js"></script>
-  <script src="./assets/js/script.js"></script>
+  <script src="/assets/js/bibtex_js.js"></script>
+  <script src="/assets/js/script.js"></script>
 </body>
 
 </html>

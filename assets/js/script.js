@@ -240,7 +240,7 @@ function toggle(item) {
   document.getElementById("bib"+id).classList.toggle("active");
 }
 
-const auxData = fetch(document.getElementById("aux").getAttribute("src")).then(response => {return response.json();})
+const auxData = fetch("/files/aux.json").then(response => {return response.json();})
 
 function findAux(item) {
   auxData.then(auxDict => {

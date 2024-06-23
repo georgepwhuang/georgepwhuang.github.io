@@ -5,7 +5,7 @@
   "huang2023hybrid": {
     "abs": "Solving linear systems is of great importance in numerous fields. In particular, circulant systems are especially valuable for efficiently finding numerical solutions to physics-related differential equations. Current quantum algorithms like HHL or variational methods are either resource-intensive or may fail to find a solution. We present an efficient algorithm based on convex optimization of combinations of quantum states to solve for banded circulant linear systems whose non-zero terms are within distance K of the main diagonal. By decomposing banded circulant matrices into cyclic permutations, our approach produces approximate solutions to such systems with a combination of quantum states linear to K, significantly improving over previous convergence guarantees, which require quantum states exponential to K. We propose a hybrid quantum-classical algorithm using the Hadamard test and the quantum Fourier transform as subroutines and show its PromiseBQP-hardness. Additionally, we introduce a quantum-inspired algorithm with similar performance given sample and query access. We validate our methods with classical simulations and actual IBM quantum computer implementation, showcasing their applicability for solving physical problems such as heat transfer.",
     "code": "https://github.com/LiXiufan/qa-cqs-circulant",
-    "poster": "./files/poster/qcs_poster.pdf"
+    "poster": "/files/poster/qcs_poster.pdf"
   },
   "huang2023postvariational": {
     "abs": "Hybrid quantum-classical computing in the noisy intermediate-scale quantum (NISQ) era with variational algorithms can exhibit barren plateau issues, causing difficult convergence of gradient-based optimization techniques. In this paper, we discuss post-variational strategies, which shift tunable parameters from the quantum computer to the classical computer, opting for ensemble strategies when optimizing quantum models. We discuss various strategies and design principles for constructing individual quantum circuits, where the resulting ensembles can be optimized with convex programming. Further, we discuss architectural designs of post-variational quantum neural networks and analyze the propagation of estimation errors throughout such neural networks. Finally, we show that empirically, post-variational quantum neural networks using our architectural designs can potentially provide better results than variational algorithms and performance comparable to that of two-layer neural networks.",
@@ -16,11 +16,11 @@
     "abs": "Current neural network solutions in scientific document processing employ models pretrained on domain-specific corpi, which are usually limited in model size, as pretraining can be costly and limited by training resources. We introduce a framework that uses data augmentation from such domain-specific pretrained models to transfer domain specific knowledge to larger general pretrained models and improve performance on downstream tasks. Our method improves the performance of Named Entity Recognition in the astrophysical domain by more than 20% compared to domain-specific pretrained models finetuned to the target dataset.",
     "code": "https://github.com/georgepwhuang/wiesp-deal",
     "video": "https://www.youtube.com/watch?v=Cu0ympJQrTc",
-    "poster": "./files/poster/deal_poster.pdf"
+    "poster": "/files/poster/deal_poster.pdf"
   },
   "huang2022lightweight": {
     "abs": "Logical structure recovery in scientific articles associates text with a semantic section of the article. Although previous work has disregarded the surrounding context of a line, we model this important information by employing line-level attention on top of a transformer-based scientific document processing pipeline. With the addition of loss function engineering and data augmentation techniques with semi-supervised learning, our method improves classification performance by 10% compared to a recent state-of-the-art model. Our parsimonious, text-only method achieves a performance comparable to that of other works that use rich document features such as font and spatial position, using less data without sacrificing performance, resulting in a lightweight training pipeline.",
     "video": "https://www.youtube.com/watch?v=WWxx5ZEuM3w",
-    "poster": "./files/poster/lclsr_poster.pdf"
+    "poster": "/files/poster/lclsr_poster.pdf"
   }
 }
