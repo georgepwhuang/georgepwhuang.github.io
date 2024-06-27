@@ -1948,7 +1948,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar, article { width: auto; }
 
-  article { min-height: 100%; }
+
 
   #mode-toggle-btn {
     position: absolute;
@@ -1986,7 +1986,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-height: max-content;
     height: 100%;
     margin-bottom: 0;
-    padding-top: 60px;
+    padding-top: 45px;
     z-index: 1;
   }
 
@@ -2033,10 +2033,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 	 */
 
   .timeline-text { max-width: 700px; }
-
-  .infoot {display: none}
-
-  .outfoot {display: block}
 
 }
 
@@ -2095,7 +2091,7 @@ article.active {
   --onyx: #e7f0ff; /*tag-bg*/
   --eerie-black-1: #f1f4f9; /*icon-bg*/
   --eerie-black-2: #fff; /*inner-bg*/
-  --smoky-black: #eee; /*outer-bg*/
+  --smoky-black: #fff; /*outer-bg*/
   --white-1: #111; /*tag-text*/
   --white-2: #000; /*title*/
   --orange-yellow-crayola: #065fd4; /*logo-color*/

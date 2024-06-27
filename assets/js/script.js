@@ -244,7 +244,6 @@ const auxData = fetch("/files/aux.json").then(response => {return response.json(
 
 function findAux(item) {
   auxData.then(auxDict => {
-    console.log(item.querySelectorAll(".bibitem"));
  item.querySelectorAll(".bibitem").forEach(entry => {
 
   id = entry.querySelector(".entry").getAttribute("key");
