@@ -666,7 +666,10 @@ main {
   line-height: 1.5;
 }
 
-.about-text p { margin-bottom: 15px; }
+.about-text p { 
+  margin-bottom: 15px; 
+  text-align: left;
+}
 
 
 
@@ -1549,7 +1552,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .article-title { margin-bottom: 20px; }
 
-  .about-text { margin-bottom: 40px; }
+  .about-text { 
+    margin-bottom: 40px; 
+  }
+
+  .about-text p {
+    text-align: justify;
+  }
 
   /* service */
 
