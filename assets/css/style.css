@@ -293,7 +293,6 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   color: var(--vegas-gold)
 }
 
-
 .badge {
   display: inline-block;
   padding: .25em .4em;
@@ -997,6 +996,7 @@ main {
   color: var(--light-gray);
   font-weight: 400;
   line-height: 1.5;
+  margin-top: 7px
 }
 
 
