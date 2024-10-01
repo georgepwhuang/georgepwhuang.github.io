@@ -174,7 +174,7 @@ function findAux(item) {
           
           entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
         } else if (key == "note") {
-          entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i>'+itemData['note']+'</i>');
+          entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — '+itemData['note']+'— </i>');
         } else {
           entry.querySelector(".clickables").insertAdjacentHTML("beforeend", 
           '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">'+
