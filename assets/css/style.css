@@ -926,8 +926,8 @@ main {
 .title-wrapper {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 
@@ -947,8 +947,8 @@ main {
 .timeline .title-wrapper {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .timeline-list {
@@ -958,7 +958,7 @@ main {
 
 .timeline-item { position: relative; }
 
-.timeline-item:not(:last-child) { margin-bottom: 20px; }
+.timeline-item:not(:last-child) { margin-bottom: 10px; }
 
 .timeline-item-title {
   line-height: 1.5;
@@ -1653,7 +1653,15 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(33.33% - 35px); }
 
+  .title-wrapper {
+    gap: 15px;
+    margin-bottom: 15px;
+  }
 
+  .timeline .title-wrapper {
+    gap: 15px;
+    margin-bottom: 15px;
+  }
 
   /**
    * #RESUME
