@@ -158,14 +158,12 @@ function toggle(item) {
   document.getElementById("bib"+id).classList.toggle("active");
 }
 
-const auxData = fetch("/files/aux.json").then(response => {return response.json();})
+const auxData = YAML.load("files/aux.yml")
 
 function findAux(item) {
-  auxData.then(auxDict => {
- item.querySelectorAll(".bibitem").forEach(entry => {
-
+  item.querySelectorAll(".bibitem").forEach(entry => {
   id = entry.querySelector(".entry").getAttribute("key");
-  itemData = auxDict[id];
+  itemData = auxData[id];
   for (const key in itemData) {
     if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
@@ -182,8 +180,7 @@ function findAux(item) {
         }
     }
     }
- })
-})
+  })
 }
 
 Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
