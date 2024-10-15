@@ -234,6 +234,17 @@ ul.list {
   margin-left: 20px;
 }
 
+ul.news li span {
+  display:inline-block;
+  margin-right:10px;
+}
+
+ul.news li p {
+  display: inline-block;
+  max-width: calc(100% - 6em);
+  vertical-align: top;
+}
+
 ol { list-style: none; }
 
 img, button { display: block; }
