@@ -883,6 +883,10 @@ main {
 .modal-title { margin-bottom: 12px; 
   margin-right: 28px;}
 
+.modal-content {
+  max-width:100%
+}
+
 .modal-content time {
   font-size: var(--fs-6);
   color: var(--light-gray-70);
