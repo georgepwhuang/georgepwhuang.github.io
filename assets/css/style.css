@@ -681,6 +681,10 @@ main {
   text-align: left;
 }
 
+.news .badge { 
+  width: 6.5em;
+}
+
 
 
 /**
