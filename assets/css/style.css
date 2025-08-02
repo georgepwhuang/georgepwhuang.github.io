@@ -204,6 +204,7 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+  word-break: break-word;
   max-height: 300px;
   padding: 10px;
   background-color:var(--onyx);
