@@ -2123,17 +2123,17 @@ article.active {
 \*-----------------------------------*/
 
 .light-mode {
-  --jet: #526D82; /*border*/
-  --onyx: #e7f0ff; /*tag-bg*/
-  --eerie-black-1: #f1f4f9; /*icon-bg*/
-  --eerie-black-2: #fff; /*inner-bg*/
+  --jet: #bbb; /*border*/
+  --onyx: #eee; /*tag-bg*/
+  --eerie-black-1: #f6f6f6; /*icon-bg*/
+  --eerie-black-2: #fefefe; /*inner-bg*/
   --smoky-black: #fff; /*outer-bg*/
   --white-1: #111; /*tag-text*/
   --white-2: #000; /*title*/
-  --orange-yellow-crayola: #065fd4; /*logo-color*/
-  --vegas-gold: #3265b2; /*subtitle*/
+  --orange-yellow-crayola: rgb(6, 34, 127); /*logo-color*/
+  --vegas-gold: rgb(54, 77, 152); /*subtitle*/
   --light-gray: #222; /*main-text*/
-  --light-gray-70: rgb(109, 124, 148); /*side-bar-logo*/
+  --light-gray-70: rgb(96, 96, 96); /*side-bar-logo*/
   --nav-bar:  hsla(0, 0%, 98%, 0.95);
 
   --bg-gradient-onyx: linear-gradient(
@@ -2159,19 +2159,19 @@ article.active {
   );
   --border-gradient-onyx: linear-gradient(
     to bottom right,
-    #6597e0 3%,
-    #DBE2EF 97%
+    #ccc 3%,
+    #eee 97%
   );/*icon-border*/
   --text-gradient-yellow: linear-gradient(
     to right,
-    #214475,#254c84 29%,#6597e0 97%
+    #214475,#254c84 29%,#3361a6 97%
   );
 
   --shadow-1: 0px 4px 14px hsla(0, 0%, 0%, 0.1);
   --shadow-2: -4px 8px 24px hsla(0, 0%, 0%, 0.1);
   --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.1);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.05);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.1);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.05);
 
   background-color:var(--smoky-black);
 }
