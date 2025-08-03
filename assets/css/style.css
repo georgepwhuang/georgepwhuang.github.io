@@ -229,21 +229,27 @@ div.abs.active {
 
 ul { list-style: none; }
 
-ul.list {
+.list {
   list-style-type: disc; 
   list-style-position: outside;
   margin-left: 20px;
+  margin-bottom: 20px;
 }
 
-ul.news li span {
+.news {
+  margin-bottom: 20px;
+}
+
+.news li span {
   display:inline-block;
   margin-right:10px;
 }
 
-ul.news li p {
+.news li p {
   display: inline-block;
   max-width: calc(100% - 6em);
   vertical-align: top;
+  margin-bottom: 5px;
 }
 
 ol { list-style: none; }
@@ -947,7 +953,7 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin: 20px 0px;
 }
 
 
@@ -955,7 +961,7 @@ main {
   #RESUME
 \*-----------------------------------*/
 
-.article-title { margin-bottom: 30px; }
+.article-title { margin-bottom: 15px; }
 
 
 /**
@@ -1523,7 +1529,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar.active { max-height: 584px; }
 
-  .sidebar-info { gap: 25px; }
+  .sidebar-info { gap: 15px; }
 
   .avatar-box { border-radius: 30px; }
 
@@ -1545,7 +1551,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
 
-  .separator { margin: 32px 0; }
+  .separator { margin: 20px 0; }
 
   .contacts-list { gap: 20px; }
 
@@ -1579,6 +1585,19 @@ textarea.form-input::-webkit-resizer { display: none; }
   .about-text p {
     text-align: justify;
   }
+
+  .news li p {
+    margin-bottom: 15px;
+  }
+
+  .news {
+    margin-bottom: 5px;
+  }
+
+  .list {
+    margin-bottom: 15px;
+  }
+
 
   /* service */
 
@@ -1766,7 +1785,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .contacts-list {
     grid-template-columns: 1fr 1fr;
-    gap: 30px 15px;
+    gap: 15px 15px;
   }
 
 
@@ -2023,11 +2042,14 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-height: max-content;
     height: 100%;
     margin-bottom: 0;
-    padding-top: 45px;
+    padding: 35px 30px 25px 30px;
     z-index: 1;
   }
 
-  .sidebar-info { flex-direction: column; }
+  .sidebar-info { 
+    flex-direction: column; 
+    gap: 0px;
+  }
 
 
   .avatar-box img { width: 150px;}
