@@ -1594,8 +1594,8 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 5px;
   }
 
-  .list {
-    margin-bottom: 15px;
+  .about-text .list {
+    margin-bottom: 20px;
   }
 
 
