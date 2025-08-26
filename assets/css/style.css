@@ -162,9 +162,7 @@
   box-sizing: border-box;
 }
 
-a { text-decoration: none; }
-
-a.link {
+a {
   -moz-transition: color 0.3s ease, border-bottom 0.3s ease;
   -webkit-transition: color 0.3s ease, border-bottom 0.3s ease;
   -ms-transition: color 0.3s ease, border-bottom 0.3s ease;
@@ -174,7 +172,7 @@ a.link {
   color: inherit;
 }
 
-a.link:hover {
+a:hover {
   border-bottom-color: transparent;
   color: var(--orange-yellow-crayola);
 }
@@ -205,7 +203,7 @@ pre {
   white-space: -o-pre-wrap;
   word-wrap: break-word;
   word-break: break-word;
-  max-height: 300px;
+  max-height: 150vh;
   padding: 10px;
   background-color:var(--onyx);
   font-family: "Roboto Mono", monospace;
@@ -224,7 +222,7 @@ div.abs {
   transition: max-height 0.5s ease-in-out;
 }
 div.abs.active {
-  max-height: 100vh;
+  max-height: 150vh;
 }
 
 ul { list-style: none; }
@@ -325,6 +323,12 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   background-color: var(--gray);
   color: var(--light);
 }
+
+.news .badge {
+  background-color: var(--vegas-gold);
+  color: var(--smoky-black);
+}
+
 
 /*-----------------------------------*\
   #REUSED STYLE
@@ -614,6 +618,11 @@ main {
   color: var(--light-gray-70);
   display: block;
   font-size: 18px;
+  border-bottom: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+  -ms-transition: none;
+  transition: none;
 }
 
 
@@ -687,6 +696,10 @@ main {
   margin-bottom: 15px; 
   text-align: left;
 }
+
+.about-text.news p {
+    text-align: left;
+  }
 
 .news .badge { 
   width: 6.5em;
@@ -2199,12 +2212,12 @@ article.active {
   background-color:var(--smoky-black);
 }
 
-.clickables .link {
+.clickables a {
   white-space: nowrap;
   color: var(--light-gray-70)
 }
 
-.clickables .link:before {
+.clickables a:before {
   content: "[";
   margin-right: 3px;
   display: inline-block;
@@ -2216,7 +2229,7 @@ article.active {
   transition: transform 0.3s;
 }
 
-.clickables .link:after {
+.clickables a:after {
   content: "]";
   margin-left: 3px;
   display: inline-block;
@@ -2228,8 +2241,13 @@ article.active {
   transition: transform 0.3s;
 }
 
-.clickables .link:hover:before,
-.clickables .link:hover:after {
+.clickables a:hover {
+  border-bottom-color: transparent;
+  color: var(--orange-yellow-crayola);
+}
+
+.clickables a:hover:before,
+.clickables a:hover:after {
   -webkit-transform: translateX(0px);
   -moz-transform: translateX(0px);
   transform: translateX(0px);

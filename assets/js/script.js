@@ -132,7 +132,7 @@ function copyText() {
   var copyText = modalText.textContent;
 
    // Copy the text inside the text field
-   copyToClipboard(copyText.trim());
+  copyToClipboard(copyText.trim());
 
   // Alert the copied text
   alert("BibTeX copied!");
@@ -141,16 +141,16 @@ function copyText() {
 function download() {
   var text = modalText.textContent.trim();
   var filename = text.split(",")[0].split("{")[1]+".bib";
-  var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
-
-  element.style.display = 'none';
-  document.body.appendChild(element);
-
-  element.click();
-
-  document.body.removeChild(element);
+  const a = document.createElement('a')
+  const blob = new Blob([text], {type: "data:text/plain;charset=utf-8"})
+  const url = URL.createObjectURL(blob, {oneTimeOnly:true})
+  a.setAttribute('href', url)
+  a.setAttribute('download', filename) 
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
 
 function toggle(item) {
@@ -168,13 +168,13 @@ function findAux(item) {
     if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
           entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", 
-          '<span><a class="link" target="_self" role="button" key='+ id + ' onclick="toggle(this)">abs</a></span> ');
+          '<span><a target="_self" role="button" key='+ id + ' onclick="toggle(this)">abs</a></span> ');
           entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
         } else if (key == "note") {
           entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — '+itemData['note']+'— </i>');
         } else {
           entry.querySelector(".clickables").insertAdjacentHTML("beforeend", 
-          '<span><a class="link" target="_blank" href='+ itemData[key] +' role="button">'+
+          '<span><a target="_blank" href='+ itemData[key] +' role="button">'+
           key +'</a></span> ');
         }
     }
