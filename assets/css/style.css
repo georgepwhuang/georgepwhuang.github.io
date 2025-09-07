@@ -221,9 +221,6 @@ div.abs {
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
 }
-div.abs.active {
-  max-height: 150vh;
-}
 
 ul { list-style: none; }
 
@@ -239,8 +236,8 @@ ul { list-style: none; }
 }
 
 .news li span {
-  display:inline-block;
-  margin-right:10px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .news li p {
@@ -249,6 +246,59 @@ ul { list-style: none; }
   vertical-align: top;
   margin-bottom: 5px;
 }
+
+#olds {
+  display: block;           /* Ensure block-level display for list items */
+  max-height: 0;            /* Start with zero height */
+  opacity: 0;               /* Make it invisible */
+  overflow: hidden;         /* Hide the overflowing content when collapsed */
+  transition: max-height 0.6s ease, opacity 0.3s ease; /* Transition both max-height and opacity */
+}
+
+#olds.active{ 
+  opacity: 1;               /* Make the item fully visible */
+}
+
+#news-btn {
+  display: block;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+#news-btn i {
+  transition: transform 0.2s ease-in-out;
+}
+
+@keyframes bounce-down {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  99% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes bounce-up {
+  0%, 100% {
+    transform: translateY(2px);
+  }
+  99% {
+    transform: translateY(-2px);
+  }
+}
+
+#news-btn:hover i {
+  animation: bounce-down 0.8s infinite;
+}
+
+#news-btn.active:hover i {
+  animation: bounce-up 0.8s infinite;
+}
+
+
+
 
 ol { list-style: none; }
 
@@ -1607,6 +1657,11 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 5px;
   }
 
+  #news-btn {
+    transform: scale(0.9);
+    margin-bottom: 5px;
+  }
+
   .about-text .list {
     margin-bottom: 20px;
   }
@@ -2239,11 +2294,6 @@ article.active {
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
-}
-
-.clickables a:hover {
-  border-bottom-color: transparent;
-  color: var(--orange-yellow-crayola);
 }
 
 .clickables a:hover:before,

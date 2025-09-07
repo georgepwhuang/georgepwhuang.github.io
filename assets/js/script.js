@@ -153,12 +153,19 @@ function download() {
   URL.revokeObjectURL(url);
 }
 
-function toggle(item) {
+function toggleBib(item) {
   id = item.getAttribute("key");
-  document.getElementById("bib"+id).classList.toggle("active");
+  abs = document.getElementById("bib"+id)
+  abs.classList.toggle("active");  
+  if (abs.classList.contains('active')) {
+    abs.style.maxHeight = abs.scrollHeight + 'px';
+  } else {
+    abs.style.maxHeight = "0";
+  }
 }
 
 const auxData = YAML.load("files/aux.yml")
+const newsData = YAML.load("files/news.yml")
 
 function findAux(item) {
   item.querySelectorAll(".bibitem").forEach(entry => {
@@ -168,7 +175,7 @@ function findAux(item) {
     if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
           entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", 
-          '<span><a target="_self" role="button" key='+ id + ' onclick="toggle(this)">abs</a></span> ');
+          '<span><a target="_self" role="button" key='+ id + ' onclick="toggleBib(this)">abs</a></span> ');
           entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
         } else if (key == "note") {
           entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — '+itemData['note']+'— </i>');
@@ -182,6 +189,65 @@ function findAux(item) {
   })
 }
 
+const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug", "Sep", "Oct", "Nov","Dec"];
+
+function toDateString(date) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = date.getMonth();
+    let dd = date.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+
+    return dd + month[mm] + yyyy;
+}
+
+function parseForLinks(markdown) {
+  const markdownLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const html = markdown.replace(markdownLinkRegex, '<a href="$2">$1</a>');
+  return html;
+}
+
+for (let i = 0, len = newsData.length; i < len; i++) {
+  newsData[i]["date"] = new Date(newsData[i]["date"]);
+}
+newsData.sort(function(a,b){return b["date"] - a["date"]});
+
+minlen = Math.min(7, newsData.length);
+
+htmlStr = "";
+area = document.getElementById("news");
+for (let i = 0; i < minlen; i++) {
+  item = newsData[i];
+  htmlStr += `<li><span class="badge">${toDateString(item["date"])}</span><p>${parseForLinks(item["headline"])}</p></li>`;
+}
+area.innerHTML = htmlStr;
+
+htmlStr = "";
+area_older = document.getElementById("olds");
+for (let i = minlen; i < newsData.length; i++) {
+  item = newsData[i];
+  htmlStr += `<li><span class="badge">${toDateString(item["date"])}</span><p>${parseForLinks(item["headline"])}</p></li>`;
+}
+area_older.innerHTML = htmlStr;
+
+
+function toggleNews() {
+  const olds = document.getElementById('olds');
+  olds.classList.toggle("active");
+  const newsBtn = document.getElementById('news-btn');
+  newsBtn.classList.toggle("active");
+  newsBtn.getElementsByTagName('i')[0].classList.toggle("fa-angles-down");
+  newsBtn.getElementsByTagName('i')[0].classList.toggle("fa-angles-up");
+  if (newsBtn.classList.contains('active')) {
+    olds.style.maxHeight = olds.scrollHeight + 'px';
+    newsBtn.getElementsByTagName('span')[0].textContent = 'Less News';
+  } else {
+    olds.style.maxHeight = "0";
+    newsBtn.getElementsByTagName('span')[0].textContent = 'More News';
+  }
+}
+  
 Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
   element.innerHTML= new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric"});
 });
