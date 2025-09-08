@@ -262,13 +262,15 @@ ul { list-style: none; }
 #news-btn {
   display: block;
   width: max-content;
+  color: var(--light-gray-70);
+  border-bottom-color: transparent;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
 }
 
-#news-btn i {
-  transition: transform 0.2s ease-in-out;
+#news-btn:hover  {
+  color: var(--orange-yellow-crayola);
 }
 
 @keyframes bounce-down {
@@ -2294,6 +2296,10 @@ article.active {
   -webkit-transition: -webkit-transform 0.3s;
   -moz-transition: -moz-transform 0.3s;
   transition: transform 0.3s;
+}
+
+.clickables a:hover{
+  color: var(--orange-yellow-crayola)
 }
 
 .clickables a:hover:before,
