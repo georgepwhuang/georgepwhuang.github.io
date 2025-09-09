@@ -1,5 +1,5 @@
 const links = document.getElementsByTagName("a");
-for(var i = 0; i < links.length; i++){
+for (var i = 0; i < links.length; i++) {
   links[i].target = "_blank";
 }
 
@@ -13,7 +13,7 @@ const updateLightMode = (enabled) => {
   // 1. Toggle the class on the body
   document.body.classList.toggle("light-mode", enabled);
   modeBtn.classList.toggle("light-mode", enabled);
-  if (enabled){
+  if (enabled) {
     modeIcon.classList.remove("fa-moon");
     modeIcon.classList.add("fa-sun");
   }
@@ -26,10 +26,10 @@ const updateLightMode = (enabled) => {
   localStorage.setItem(lightModeKey, enabled ? "enabled" : "disabled");
 };
 
-if (!localStorage.getItem(lightModeKey)){
+if (!localStorage.getItem(lightModeKey)) {
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
     updateLightMode(true);
-  } 
+  }
 }
 else {
   updateLightMode(localStorage.getItem(lightModeKey) === "enabled");
@@ -98,40 +98,40 @@ overlay.addEventListener("click", testimonialsModalFunc);
 
 function copyToClipboard(text) {
   if (window.clipboardData && window.clipboardData.setData) {
-      // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
-      return window.clipboardData.setData("Text", text);
+    // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
+    return window.clipboardData.setData("Text", text);
 
   }
   else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-      var textarea = document.createElement("textarea");
-      textarea.textContent = text;
-      textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
-      document.body.appendChild(textarea);
-      textarea.select();
-      try {
-          return document.execCommand("copy");  // Security exception may be thrown by some browsers.
-      }
-      catch (ex) {
-          console.warn("Copy to clipboard failed.", ex);
-          return prompt("Copy to clipboard: Ctrl+C, Enter", text);
-      }
-      finally {
-          document.body.removeChild(textarea);
-      }
+    var textarea = document.createElement("textarea");
+    textarea.textContent = text;
+    textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      return document.execCommand("copy");  // Security exception may be thrown by some browsers.
+    }
+    catch (ex) {
+      console.warn("Copy to clipboard failed.", ex);
+      return prompt("Copy to clipboard: Ctrl+C, Enter", text);
+    }
+    finally {
+      document.body.removeChild(textarea);
+    }
   }
 }
 
 function loadModal(testimonial) {
-    modalTitle.innerHTML = testimonial.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = testimonial.querySelector("[data-testimonials-text]").innerHTML;
-    testimonialsModalFunc();
+  modalTitle.innerHTML = testimonial.querySelector("[data-testimonials-title]").innerHTML;
+  modalText.innerHTML = testimonial.querySelector("[data-testimonials-text]").innerHTML;
+  testimonialsModalFunc();
 }
 
 function copyText() {
   // Get the text field
   var copyText = modalText.textContent;
 
-   // Copy the text inside the text field
+  // Copy the text inside the text field
   copyToClipboard(copyText.trim());
 
   // Alert the copied text
@@ -140,12 +140,12 @@ function copyText() {
 
 function download() {
   var text = modalText.textContent.trim();
-  var filename = text.split(",")[0].split("{")[1]+".bib";
+  var filename = text.split(",")[0].split("{")[1] + ".bib";
   const a = document.createElement('a')
-  const blob = new Blob([text], {type: "data:text/plain;charset=utf-8"})
-  const url = URL.createObjectURL(blob, {oneTimeOnly:true})
+  const blob = new Blob([text], { type: "data:text/plain;charset=utf-8" })
+  const url = URL.createObjectURL(blob, { oneTimeOnly: true })
   a.setAttribute('href', url)
-  a.setAttribute('download', filename) 
+  a.setAttribute('download', filename)
   a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
@@ -155,8 +155,8 @@ function download() {
 
 function toggleBib(item) {
   id = item.getAttribute("key");
-  abs = document.getElementById("bib"+id)
-  abs.classList.toggle("active");  
+  abs = document.getElementById("bib" + id)
+  abs.classList.toggle("active");
   if (abs.classList.contains('active')) {
     abs.style.maxHeight = abs.scrollHeight + 'px';
   } else {
@@ -169,37 +169,37 @@ const newsData = YAML.load("files/news.yml")
 
 function findAux(item) {
   item.querySelectorAll(".bibitem").forEach(entry => {
-  id = entry.querySelector(".entry").getAttribute("key");
-  itemData = auxData[id];
-  for (const key in itemData) {
-    if (itemData.hasOwnProperty(key)) {
+    id = entry.querySelector(".entry").getAttribute("key");
+    itemData = auxData[id];
+    for (const key in itemData) {
+      if (itemData.hasOwnProperty(key)) {
         if (key == "abs") {
-          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin", 
-          '<span><a target="_self" role="button" key='+ id + ' onclick="toggleBib(this)">abs</a></span> ');
-          entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>'+itemData['abs']+'</pre> ');
+          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin",
+            '<span><a target="_self" role="button" key=' + id + ' onclick="toggleBib(this)">abs</a></span> ');
+          entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>' + itemData['abs'] + '</pre> ');
         } else if (key == "note") {
-          entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — '+itemData['note']+'— </i>');
+          entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — ' + itemData['note'] + '— </i>');
         } else {
-          entry.querySelector(".clickables").insertAdjacentHTML("beforeend", 
-          '<span><a target="_blank" href='+ itemData[key] +' role="button">'+
-          key +'</a></span> ');
+          entry.querySelector(".clickables").insertAdjacentHTML("beforeend",
+            '<span><a target="_blank" href=' + itemData[key] + ' role="button">' +
+            key + '</a></span> ');
         }
-    }
+      }
     }
   })
 }
 
-const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug", "Sep", "Oct", "Nov","Dec"];
+const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 function toDateString(date) {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = date.getMonth();
-    let dd = date.getDate();
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = date.getMonth();
+  let dd = date.getDate();
 
-    if (dd < 10) dd = '0' + dd;
+  if (dd < 10) dd = '0' + dd;
 
-    return dd + month[mm] + yyyy;
+  return dd + month[mm] + yyyy;
 }
 
 function parseForLinks(markdown) {
@@ -211,7 +211,7 @@ function parseForLinks(markdown) {
 for (let i = 0, len = newsData.length; i < len; i++) {
   newsData[i]["date"] = new Date(newsData[i]["date"]);
 }
-newsData.sort(function(a,b){return b["date"] - a["date"]});
+newsData.sort(function (a, b) { return b["date"] - a["date"] });
 
 minlen = Math.min(7, newsData.length);
 
@@ -247,41 +247,41 @@ function toggleNews() {
     newsBtn.getElementsByTagName('span')[0].textContent = 'More News';
   }
 }
-  
+
 Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
-  element.innerHTML= new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric"});
+  element.innerHTML = new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric" });
 });
 
 
 function encodeEmail(email, key) {
   var encodedKey = key.toString(16);
   var encodedString = make2DigitsLong(encodedKey);
-  var result = ""; 
-  for(var n=0; n < email.length; n++) {
-      var charCode = email.charCodeAt(n);
-      var encoded = charCode ^ key;
-      var value = encoded.toString(16);
-      result += make2DigitsLong(value);
+  var result = "";
+  for (var n = 0; n < email.length; n++) {
+    var charCode = email.charCodeAt(n);
+    var encoded = charCode ^ key;
+    var value = encoded.toString(16);
+    result += make2DigitsLong(value);
   }
   result += encodedString;
   return result;
 }
 
-function make2DigitsLong(value){
-  return value.length === 1 
-      ? '0' + value
-      : value;
+function make2DigitsLong(value) {
+  return value.length === 1
+    ? '0' + value
+    : value;
 }
 
 function decodeEmail(encodedString) {
-  var email = ""; 
+  var email = "";
   var keyInHex = encodedString.substr(encodedString.length - 2);
   var key = parseInt(keyInHex, 16);
   for (var n = 0; n < encodedString.length - 2; n += 2) {
-      var charInHex = encodedString.substr(n, 2)
-      var char = parseInt(charInHex, 16);
-      var output = char ^ key;
-      email += String.fromCharCode(output);
+    var charInHex = encodedString.substr(n, 2)
+    var char = parseInt(charInHex, 16);
+    var output = char ^ key;
+    email += String.fromCharCode(output);
   }
   return email;
 }
@@ -289,7 +289,7 @@ function decodeEmail(encodedString) {
 
 var protectedElements = document.getElementsByClassName("protected");
 for (var i = 0; i < protectedElements.length; i++) {
-    var encoded = protectedElements[i].getAttribute("eml");
-    var decoded = decodeEmail(encoded);
-    protectedElements[i].href = 'mailto:' + decoded;
+  var encoded = protectedElements[i].getAttribute("eml");
+  var decoded = decodeEmail(encoded);
+  protectedElements[i].href = 'mailto:' + decoded;
 }
