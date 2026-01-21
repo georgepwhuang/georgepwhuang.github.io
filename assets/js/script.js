@@ -165,28 +165,61 @@ function toggleBib(item) {
 }
 
 const auxData = YAML.load("files/aux.yml")
-const newsData = YAML.load("files/news.yml")
 
-function findAux(item) {
-  item.querySelectorAll(".bibitem").forEach(entry => {
-    id = entry.querySelector(".entry").getAttribute("key");
-    itemData = auxData[id];
-    for (const key in itemData) {
-      if (itemData.hasOwnProperty(key)) {
-        if (key == "abs") {
-          entry.querySelector(".clickables").insertAdjacentHTML("afterbegin",
-            '<span><a target="_self" role="button" key=' + id + ' onclick="toggleBib(this)">abs</a></span> ');
-          entry.querySelector(".abs").insertAdjacentHTML("afterbegin", '<pre>' + itemData['abs'] + '</pre> ');
-        } else if (key == "note") {
-          entry.querySelector(".note").insertAdjacentHTML("afterbegin", '<br/><i> — ' + itemData['note'] + '— </i>');
-        } else {
-          entry.querySelector(".clickables").insertAdjacentHTML("beforeend",
-            '<span><a target="_blank" href=' + itemData[key] + ' role="button">' +
-            key + '</a></span> ');
-        }
+function insertAbstract(entry, id, absText) {
+  entry.querySelector(".clickables")?.insertAdjacentHTML(
+    "afterbegin",
+    `<span>
+       <a role="button" key="${id}" onclick="toggleBib(this)">abs</a>
+     </span> `
+  );
+
+  entry.querySelector(".abs")?.insertAdjacentHTML(
+    "afterbegin",
+    `<pre>${absText}</pre>`
+  );
+}
+
+function insertNote(entry, noteText) {
+  entry.querySelector(".note")?.insertAdjacentHTML(
+    "afterbegin",
+    `<br><i>— ${noteText} —</i>`
+  );
+}
+
+function insertLink(entry, label, url) {
+  entry.querySelector(".clickables")?.insertAdjacentHTML(
+    "beforeend",
+    `<span>
+       <a target="_blank" href="${url}" role="button">${label}</a>
+     </span> `
+  );
+}
+
+function findAux(container) {
+  container.querySelectorAll(".bibitem").forEach(entry => {
+    const id = entry.querySelector(".entry")?.getAttribute("key");
+    if (!id || !auxData[id]) return;
+
+    const itemData = auxData[id];
+
+    Object.entries(itemData).forEach(([key, value]) => {
+      if (!value) return;
+
+      switch (key) {
+        case "abs":
+          insertAbstract(entry, id, value);
+          break;
+
+        case "note":
+          insertNote(entry, value);
+          break;
+
+        default:
+          insertLink(entry, key, value);
       }
-    }
-  })
+    });
+  });
 }
 
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -198,7 +231,7 @@ function toDateString(date) {
 
   if (dd < 10) dd = '0' + dd;
 
-  return dd + month[mm] + yyyy;
+  return dd + " " + month[mm] + " " + yyyy;
 }
 
 function parseForLinks(markdown) {
@@ -207,45 +240,108 @@ function parseForLinks(markdown) {
   return html;
 }
 
-for (let i = 0, len = newsData.length; i < len; i++) {
-  newsData[i]["date"] = new Date(newsData[i]["date"]);
-}
-newsData.sort(function (a, b) { return b["date"] - a["date"] });
+const MAX_RECENT_NEWS = 7;
 
-minlen = Math.min(7, newsData.length);
+const newsData = YAML.load("files/news.yml")
+  .map(item => ({
+    ...item,
+    date: new Date(item.date)
+  }))
+  .sort((a, b) => b.date - a.date);
 
-htmlStr = "";
-area = document.getElementById("news");
-for (let i = 0; i < minlen; i++) {
-  item = newsData[i];
-  htmlStr += `<li><span class="badge">${toDateString(item["date"])}</span><p>${parseForLinks(item["headline"])}</p></li>`;
+function renderNewsItem(item) {
+  return `
+    <li class="news-item">
+      <span class="badge">${toDateString(item.date)}</span><p>${parseForLinks(item.headline)}</p>
+    </li>
+  `;
 }
-area.innerHTML = htmlStr;
 
-htmlStr = "";
-area_older = document.getElementById("olds");
-for (let i = minlen; i < newsData.length; i++) {
-  item = newsData[i];
-  htmlStr += `<li><span class="badge">${toDateString(item["date"])}</span><p>${parseForLinks(item["headline"])}</p></li>`;
-}
-area_older.innerHTML = htmlStr;
+const recentNews = newsData.slice(0, MAX_RECENT_NEWS);
+const olderNews  = newsData.slice(MAX_RECENT_NEWS);
+
+document.getElementById("news").innerHTML =
+  recentNews.map(renderNewsItem).join("");
+
+document.getElementById("olds").innerHTML =
+  olderNews.map(renderNewsItem).join("");
 
 
 function toggleNews() {
-  const olds = document.getElementById('olds');
-  olds.classList.toggle("active");
-  const newsBtn = document.getElementById('news-btn');
-  newsBtn.classList.toggle("active");
-  newsBtn.getElementsByTagName('i')[0].classList.toggle("fa-angles-down");
-  newsBtn.getElementsByTagName('i')[0].classList.toggle("fa-angles-up");
-  if (newsBtn.classList.contains('active')) {
-    olds.style.maxHeight = olds.scrollHeight + 'px';
-    newsBtn.getElementsByTagName('span')[0].textContent = 'Less News';
-  } else {
-    olds.style.maxHeight = "0";
-    newsBtn.getElementsByTagName('span')[0].textContent = 'More News';
-  }
+  const olds = document.getElementById("olds");
+  const btn  = document.getElementById("news-btn");
+  const icon = btn.querySelector("i");
+  const text = btn.querySelector("span");
+
+  const isOpen = btn.classList.toggle("active");
+  olds.classList.toggle("active", isOpen);
+
+  icon.classList.toggle("fa-angles-down", !isOpen);
+  icon.classList.toggle("fa-angles-up", isOpen);
+
+  olds.style.maxHeight = isOpen ? olds.scrollHeight + "px" : "0";
+  text.textContent = isOpen ? "Less News" : "More News";
 }
+
+const TALK_TYPE_BADGES = {
+  "Invited Talk": "var(--red)",
+  "Seminar": "var(--azure)",
+  "Contributed Talk": "var(--violet)"
+};
+
+const TALK_TYPE_PILL = {
+  "Invited Talk": "Invited",
+  "Seminar": "Seminar",
+  "Contributed Talk": "Contrib"
+};
+
+const talksData = YAML.load("files/talks.yml")
+  .map(talk => ({
+    ...talk,
+    date: new Date(talk.date)
+  }))
+  .sort((a, b) => b.date - a.date);
+
+function groupByTitle(talks) {
+  const groups = new Map();
+  talks.forEach(talk => {
+    if (!groups.has(talk.title)) {
+      groups.set(talk.title, []);
+    }
+    groups.get(talk.title).push(talk);
+  });
+  return groups;
+}
+
+function renderTalkOccurrence(talk) {
+  const pill = TALK_TYPE_PILL[talk.type];
+  const color = TALK_TYPE_BADGES[talk.type] ?? "var(--light-gray)";
+  return `
+    <li class="talk-occurrence">
+      <span class="badge" style="background-color:${color};">${pill}</span>
+      ${talk.venue}
+      · ${toDateString(talk.date)}</span>
+    </li>
+  `;
+}
+
+function renderTalkGroup(title, talks) {
+  return `
+    <li class="service-item">
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">${title}</h4>
+        <ul class="talk-occurrences" style="margin-top:6px; padding-left:0; list-style:none;">
+          ${talks.map(renderTalkOccurrence).join("")}
+        </ul>
+      </div>
+    </li>
+  `;
+}
+
+document.getElementById("talks").innerHTML =
+  Array.from(groupByTitle(talksData).entries())
+    .map(([title, talks]) => renderTalkGroup(title, talks))
+    .join("");
 
 Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
   element.innerHTML = new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric" });

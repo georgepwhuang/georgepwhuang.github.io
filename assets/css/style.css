@@ -65,19 +65,22 @@
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --nav-bar: hsla(240, 1%, 17%, 0.95);
 
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --green: #198754;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --blue: #0d6efd;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #d63384;
+  --red: #AB3838;
+  --brown: #82562B;
+  --yellow: #636321;
+  --olive: #476B23;
+  --green: #257025;
+  --teal: #246E49;
+  --cyan: #236B6B;
+  --azure: #326496;
+  --blue: #4141C4;
+  --violet: #7F3FBF;
+  --magenta: #9C339C;
+  --purple: #A6376E;
   --light: #f8f9fa;
   --gray: #6c757d;
   --dark: #343a40;
+
 
   --nus-orange: #EF7C00;
   --oxford-navy: #337ab7;
@@ -754,7 +757,11 @@ main {
   }
 
 .news .badge { 
-  width: 6.5em;
+  width: 7em;
+}
+
+.talk-occurrence .badge { 
+  width: 5em;
 }
 
 
@@ -770,14 +777,14 @@ main {
 .service-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .service-item {
   position: relative;
   background: var(--border-gradient-onyx);
-  padding: 20px;
-  border-radius: 14px;
+  padding: 10px 15px;
+  border-radius: 10px;
   box-shadow: var(--shadow-2);
   z-index: 1;
 }
@@ -795,7 +802,7 @@ main {
 
 .service-icon-box img { margin: auto; }
 
-.service-content-box { text-align: center; }
+.service-content-box { text-align: left; }
 
 .service-item-title { margin-bottom: 7px; }
 
@@ -1375,8 +1382,6 @@ main {
 
 
 
-
-
 /*-----------------------------------*\
   #CONTACT
 \*-----------------------------------*/
@@ -1675,8 +1680,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 18px;
-    padding: 30px;
   }
 
   .service-icon-box {
@@ -2005,10 +2008,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   /* service */
 
-  .service-list {
+  /* .service-list {
     grid-template-columns: 1fr 1fr;
     gap: 20px 25px;
-  }
+  } */
 
   /* testimonials */
 
@@ -2217,9 +2220,9 @@ article.active {
 
 .light-mode {
   --jet: #bbb; /*border*/
-  --onyx: #eee; /*tag-bg*/
-  --eerie-black-1: #f6f6f6; /*icon-bg*/
-  --eerie-black-2: #fefefe; /*inner-bg*/
+  --onyx: #e8e8e8; /*tag-bg*/
+  --eerie-black-1: #ffffff; /*icon-bg*/
+  --eerie-black-2: #ffffff; /*inner-bg*/
   --smoky-black: #fff; /*outer-bg*/
   --white-1: #282828; /*tag-text*/
   --white-2: #222; /*title*/
@@ -2237,7 +2240,7 @@ article.active {
 
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
-    #DBE2EF 0%, 
+    #ffffff 0%, 
     #ffffff 100%
   ), hsl(0, 0%, 87%);
   --bg-gradient-yellow-1: linear-gradient(
@@ -2252,17 +2255,17 @@ article.active {
   );
   --border-gradient-onyx: linear-gradient(
     to bottom right,
-    #ccc 3%,
-    #eee 97%
+    #ddd 3%,
+    #ddd 97%
   );/*icon-border*/
   --text-gradient-yellow: linear-gradient(
     to right,
     #214475,#254c84 29%,#3361a6 97%
   );
 
-  --shadow-1: 0px 4px 14px hsla(0, 0%, 0%, 0.1);
-  --shadow-2: -4px 8px 24px hsla(0, 0%, 0%, 0.1);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.1);
+  --shadow-1: 0px 4px 14px hsla(0, 0%, 0%, 0.05);
+  --shadow-2: -4px 8px 24px hsla(0, 0%, 0%, 0.05);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.05);
   --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.05);
   --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.05);
 

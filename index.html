@@ -193,9 +193,8 @@
               <h4 class="timeline-item-title">University of Oxford</h4>
               <span>DPhil in Mathematics</span>
               <p><i>Oct 2024 — Present</i></p>
-              <ul class="timeline-text list">
-                <li>Research group: Mathematical physics — Quantum information and computation</li>
-                <li>Research topic: Theory and algorithms for quantum computation </li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Theory and algorithms for quantum computation</li>
                 <li>Advisors: Prof. B&aacutelint Koczor, Prof. Simon Benjamin and Prof. Artur Ekert</li>
               </ul>
             </li>
@@ -203,10 +202,9 @@
               <h4 class="timeline-item-title">National University of Singapore</h4>
               <span>BComp (Hons) in Computer Science</span>
               <p><i>Aug 2020 — Jun 2023</i></p>
-              <ul class="timeline-text list">
-                <li>Honors with Highest Distinction</li>
-                <li>Second Major in Mathematics</li>
-                <li>Dual Specialization in Algorithms/Theory and Artificial Intelligence/Machine Learning</li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Honors with highest distinction · Second major in mathematics</li>
+                <li>Dual specialization in algorithms/theory and AI/ML</li>
                 <li>Advisors: Prof. Patrick Rebentrost and Prof. Rahul Jain</li>
               </ul>
             </li>
@@ -224,8 +222,8 @@
               <h4 class="timeline-item-title">Graduate Researcher</h4>
               <span>Quantum Motion Technologies, United Kingdom</span>
               <p><i>Nov 2024 — Present</i></p>
-              <ul class="timeline-text list">
-                <li>Research topic: Applications for quantum computers</li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Applications for quantum computers</li>
                 <li>Supervisor: Prof. Simon Benjamin, Dr. Thomas R. Bromley</li>
               </ul>
             </li>
@@ -233,8 +231,8 @@
               <h4 class="timeline-item-title">Research Assistant</h4>
               <span>Entangled Computing Lab, Centre for Quantum Technologies, Singapore</span>
               <p><i>May 2023 — Sep 2024</i></p>
-              <ul class="timeline-text list">
-                <li>Research topic: Quantum machine learning and optimisation</li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Quantum machine learning and optimisation</li>
                 <li>Principal Investigator: Prof. Patrick Rebentrost</li>
               </ul>
             </li>
@@ -242,8 +240,8 @@
               <h4 class="timeline-item-title">Undergraduate Researcher</h4>
               <span>Web IR/NLP Group, National Univerisity of Singapore</span>
               <p><i>Apr 2021 — Jul 2022</i></p>
-              <ul class="timeline-text list">
-                <li>Research topic: Neural logical structure recovery in scholarly articles</li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Neural logical structure recovery in scholarly articles</li>
                 <li>Advisor: Prof. Min-Yen Kan</li>
               </ul>
             </li>
@@ -251,8 +249,8 @@
               <h4 class="timeline-item-title">Student Researcher</h4>
               <span>Department of Chemistry, National Cheng Kung University, Taiwan</span>
               <p><i>Sep 2018 — Apr 2019</i></p>
-              <ul class="timeline-text list">
-                <li>Research topic: Synthesis of bio-carbon and its applications on electric components </li>
+              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+                <li>Synthesis of bio-carbon and its applications on electric components </li>
                 <li>Advisor: Prof. Hong-Ping Lin</li>
               </ul>
             </li>
@@ -305,10 +303,10 @@
                   </div>
                   <div style="margin-bottom:3px">
                     <span class="if BIBTEXTYPEKEY==ARTICLE">
-                      <span class="badge" style="background-color:var(--blue);">J</span>
+                      <span class="badge" style="background-color:var(--azure);">J</span>
                     </span>
                     <span class="if BIBTEXTYPEKEY==INPROCEEDINGS">
-                      <span class="badge" style="background-color:var(--green);">C</span>
+                      <span class="badge" style="background-color:var(--teal);">C</span>
                     </span>
                     <span class="if BIBTEXTYPEKEY==MISC">
                       <span class="badge" style="background-color:var(--red);">P</span>
@@ -323,7 +321,7 @@
                     <span class="if year">(<span class="year"></span>).</span>
                     <span class="note"></span>
                   </div>
-                  <div class="clickables mono">
+                  <div class="clickables mono" style="margin-bottom:3px">
                     <span target="_self" role="button" onclick="loadModal(this)">
                       <a>bib</a>
                       <div style="display:none" data-testimonials-title>
@@ -341,7 +339,7 @@
                           <a class="bibtexVar link" href="https://arxiv.org/abs/+EPRINT+" extra="eprint">paper</a>
                         </span></span></span>
                   </div>
-                  <div class="bibtexVar abs" id="bib+BIBTEXKEY+" extra="BIBTEXKEY">
+                  <div class="bibtexVar abs" id="bib+BIBTEXKEY+" extra="BIBTEXKEY" style="margin-bottom:3px">
                   </div>
                 </li>
               </ul>
@@ -374,142 +372,172 @@
         <header>
           <h2 class="article-title">Contributions</h2>
         </header>
+        <section class="service">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-comment"></i>
+            </div>
+            <h3>Talks</h3>
+          </div>
+          <ul class="service-list" id="talks"></ul>
+        </section>
         <section>
-          <h3 style="margin: 10px 0px">Talks
-            <i class="fa-solid fa-comment" style="color: var(--orange-yellow-crayola)"></i>
-          </h3>
-          <ul class="about-text list">
-            <li><b>Quantum computing for drug development.</b> ESxAI Seminar, UCB Pharma
-              <span class="badge" style="background-color:var(--red);">Invited Talk</span>
-              <span class="badge">30Oct2025</span>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3>Awards & Honours</h3>
+          </div>
+          <ul class="service-list" style="grid-template-columns: 1fr 1fr; gap: 20px 25px;">
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">EPSRC Quantum Technologies DTP CASE Conversion Studentship</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge">Oct2024–Mar2028</span>
+              </div>
             </li>
-            <li><b>Quantum algorithm for alchemical free energy calculation.</b> Quantum Nosh, Oxford
-              <span class="badge" style="background-color:var(--blue);">Seminar</span>
-              <span class="badge">24Oct2025</span>
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Alan Tayler Scholarship in Mathematics</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge">Oct2025 – Sep2027</span>
+              </div>
             </li>
-            <li><b>Post-variational quantum neural networks.</b> QTML 2023.
-              <span class="badge" style="background-color:var(--purple);">Contributed Talk</span>
-              <span class="badge">22Nov2023</span>
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Taiwanese Government Scholarship to Study Abroad</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge">Jun2025 – May2027</span>
+              </div>
             </li>
-            <li><b>Post-variational strategies for quantum machine learning.</b> QML Seminar, QAISG.
-              <span class="badge" style="background-color:var(--blue);">Seminar</span>
-              <span class="badge">24Oct2023</span>
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">School of Computing Turing Research Programme</h4>
+                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
+                <span class="badge">Feb2022 – Jul2023</span>
+              </div>
             </li>
-            <li><b>Post-variational quantum neural networks.</b> CS Seminar, CQT.
-              <span class="badge" style="background-color:var(--blue);">Seminar</span>
-              <span class="badge">30Aug2023</span>
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Honour List of Student Tutors</h4>
+                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
+                <span class="badge">AY2021 – 2022</span>
+              </div>
             </li>
-            <li><b>Domain specific augmentations as low cost teachers for large students.</b> WIESP 2022.
-              <span class="badge" style="background-color:var(--purple);">Contributed Talk</span>
-              <span class="badge">21Nov2022</span>
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Dean's List</h4>
+                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
+                <span class="badge">Aut20</span>
+                <span class="badge">Spr21</span>
+                <span class="badge">Aut22</span>
+              </div>
             </li>
           </ul>
         </section>
         <section>
-          <h3 style="margin: 10px 0px">Poster Presentations
-            <i class="fa-solid fa-file-contract" style="color: var(--orange-yellow-crayola)"></i>
-          </h3>
-          <ul class="about-text list">
-            <li><b>Quantum algorithm for alchemical free energy calculation.</b> QIP 2026.
-              <span class="badge">26Jan2026</span>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <h3>Teaching</h3>
+          </div>
+          <ul class="service-list" style="grid-template-columns: 1fr 1fr; gap: 20px 25px;">
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">C7.4 Introduction to Quantum Information</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge" style="background-color:var(--brown);">Tutor</span>
+                <span class="badge">Spr26</span>
+              </div>
             </li>
-            <li><b>Quantum algorithm for alchemical free energy calculation.</b> SEEQA 2025.
-              <span class="badge">27Aug2025</span>
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">B8.5 Graph Theory</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge" style="background-color:var(--teal);">TA</span>
+                <span class="badge">Aut25</span>
+              </div>
             </li>
-            <li><b>Quantum algorithm for large-scale market equilibrium computation.</b> NeurIPS 2024.
-              <span class="badge">11Dec2024</span>
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">B7.3 Further Quantum Theory</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge" style="background-color:var(--teal);">TA</span>
+                <span class="badge">Spr25</span>
+              </div>
             </li>
-            <li><b>Hybrid quantum-classical algorithms for solving banded circulant linear systems.</b> QIP 2024.
-              <span class="badge">15Jan2024</span>
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">B8.4 Information Theory</h4>
+                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
+                <span class="badge" style="background-color:var(--teal);">TA</span>
+                <span class="badge">Aut24</span>
+              </div>
             </li>
-            <li><b>Lightweight contextual logical structure recovery.</b> SDP 2022.
-              <span class="badge">17Oct2022</span>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h3 style="margin: 10px 0px">Awards & Honours
-            <i class="fa-solid fa-award" style="color: var(--orange-yellow-crayola)"></i>
-          </h3>
-          <ul class="about-text list">
-            <li>EPSRC Quantum Technologies DTP CASE Conversion Studentship
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge">Oct2024-Mar2028</span>
-            </li>
-            <li>Alan Tayler Scholarship in Mathematics
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge">Oct2025-Sep2027</span>
-            </li>
-            <li>Taiwanese Government Scholarship to Study Abroad
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge">Jun2025-May2027</span>
-            </li>
-            <li>School of Computing Turing Research Programme
-              <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-              <span class="badge">Feb2022-Jul2023</span>
-            </li>
-            <li>School of Computing Take on the World (SToW) Award
-              <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-              <span class="badge">Jan2023</span>
-              <span class="badge">Mar2023</span>
-            </li>
-            <li>Honour List of Student Tutors
-              <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-              <span class="badge">AY2021-2022</span>
-            </li>
-            <li>Dean's List
-              <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-              <span class="badge">Aut20</span> <span class="badge">Spr21</span>
-              <span class="badge">Aut22</span>
+
+            <li class="service-item">
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">CS2040(S) Data Structure and Algorithms</h4>
+                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
+                <span class="badge" style="background-color:var(--teal);">TA</span>
+                <span class="badge">Spr21 - Spr23</span>
+              </div>
             </li>
           </ul>
         </section>
         <section>
-          <h3 style="margin: 10px 0px">Teaching
-            <i class="fa-solid fa-chalkboard-user" style="color: var(--orange-yellow-crayola)"></i>
-          </h3>
-          <ul class="about-text list">
-            <li>C7.4 Introduction to Quantum Information
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge" style="color:black;background-color:var(--yellow);">Tutor</span>
-              <span class="badge">Spr26</span>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <h3>Poster Presentations</h3>
+          </div>
+          <ul class="about-text list" style="list-style: none;">
+            <li style="margin-bottom:12px;">
+              <b>Fullqubit alchemist: Quantum algorithm for alchemical free energy calculation</b><br>
+              QIP 2026 · 26 Jan 2026<br>
+              SEEQA 2025 · 27 Aug 2025
             </li>
-            <li>B8.5 Graph Theory
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge" style="background-color:var(--green);">TA</span>
-              <span class="badge">Aut25</span>
+
+            <li style="margin-bottom:12px;">
+              <b>Quantum algorithm for large-scale market equilibrium computation</b><br>
+              NeurIPS 2024 · 11 Dec 2024
             </li>
-            <li>B7.3 Further Quantum Theory
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge" style="background-color:var(--green);">TA</span>
-              <span class="badge">Spr25</span>
-            </li>
-            <li>B8.4 Information Theory
-              <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-              <span class="badge" style="background-color:var(--green);">TA</span>
-              <span class="badge">Aut24</span>
-            </li>
-            <li>CS2040(S) Data Structure and Algorithms <span class="badge"
-                style="background-color:var(--nus-orange);">NUS</span>
-              <span class="badge" style="background-color:var(--green);">TA</span>
-              <span class="badge">Spr21</span>
-              <span class="badge">Sum21</span>
-              <span class="badge">Aut21</span>
-              <span class="badge">Spr22</span>
-              <span class="badge">Sum22</span>
-              <span class="badge">Aut22</span>
-              <span class="badge">Spr23</span>
+
+            <li style="margin-bottom:12px;">
+              <b>Hybrid quantum-classical algorithms for solving banded circulant linear systems</b><br>
+              QIP 2024 · 15 Jan 2024
             </li>
           </ul>
         </section>
         <section>
-          <h3 style="margin: 10px 0px">Academic Service
-            <i class="fa-solid fa-pen-nib" style="color: var(--orange-yellow-crayola)"></i>
-          </h3>
-          <ul class="about-text list">
-            <li><b>Journal Reviewer: </b> Int. J. Quantum Inf., Quantum Mach. Intell., npj Quantum Inf.</li>
-            <li><b>Conference Reviewer: </b> QTML 2023, TAMC 2024, TQC 2024, NeurIPS 2025, QIP 2026, ICLR 2026</li>
-            <li><b>Conference Volunteer: </b> SEEQA 2025</li>
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <i class="fa-solid fa-pen-nib"></i>
+            </div>
+            <h3>Academic Service</h3>
+          </div>
+          <ul class="about-text list" style="list-style: none; padding-left: 0;">
+            <p>
+              <b>Journal Reviewer</b><br>
+              International Journal of Quantum Information ·
+              Quantum Machine Intelligence ·
+              npj Quantum Information
+            </p>
+
+            <p style="margin-top:10px;">
+              <b>Conference Reviewer</b><br>
+              QTML 2023 · TAMC 2024 · TQC 2024 · NeurIPS 2025 · QIP 2026 · ICLR 2026
+            </p>
+
+            <p style="margin-top:10px;">
+              <b>Conference Volunteer</b><br>
+              SEEQA 2025
+            </p>
           </ul>
         </section>
       </article>
@@ -527,7 +555,7 @@
     - custom js scripts
   -->
   <script src="/assets/js/yaml.min.js"></script>
-  <script src="/assets/js/script.min.js"></script>
+  <script src="/assets/js/script.js"></script>
   <script src="/assets/js/bibtex_js.min.js"></script>
   <script type="text/javascript"
     src="https://clustrmaps.com/globe.js?d=RqR0-tM_DVHQvWiaE4Tf3z1GNHZmopCIm2IAW2lkG3k"></script>
