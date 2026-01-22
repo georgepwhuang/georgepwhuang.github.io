@@ -77,9 +77,7 @@
   --violet: #7F3FBF;
   --magenta: #9C339C;
   --purple: #A6376E;
-  --light: #f8f9fa;
-  --gray: #6c757d;
-  --dark: #343a40;
+  --gray: #616161;
 
 
   --nus-orange: #EF7C00;
@@ -326,7 +324,7 @@ input, textarea {
 
 ::selection {
   background: var(--orange-yellow-crayola);
-  color: var(--smoky-black);
+  color: var(--eerie-black-2);
 }
 
 :focus { outline-color: var(--orange-yellow-crayola); }
@@ -339,23 +337,22 @@ html { font-family: "Roboto Slab", serif;
 body { background: var(--smoky-black); color: var(--light-gray);}
 
 .clickButton {
-  border: none;
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 10 px;
   margin: 10px 2px;
   border-radius: 8px;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: var(--light-gray);
-  color: var(--eerie-black-1)
+  background: var(--onyx);
+  box-shadow: var(--shadow-2);
+  color: var(--light-grey-70)
 }
 
 .clickButton:hover {
-  background-color: var(--vegas-gold);
-  color: whitesmoke;
+  background: var(--vegas-gold);
+  color: var(--eerie-black-1);
 }
 
 .outfoot {display: none}
@@ -368,7 +365,7 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   display: inline-block;
   padding: .25em .4em;
   font-size: 75%;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   text-align: center;
   white-space: nowrap;
@@ -376,12 +373,17 @@ body { background: var(--smoky-black); color: var(--light-gray);}
   margin-top: -0.25em;
   border-radius: .25rem;
   background-color: var(--gray);
-  color: var(--light);
+  color: #fff;
 }
 
 .news .badge {
   background-color: var(--vegas-gold);
   color: var(--smoky-black);
+  width: 7em;
+}
+
+.talk-occurrence .badge { 
+  width: 5em;
 }
 
 
@@ -756,13 +758,7 @@ main {
     text-align: left;
   }
 
-.news .badge { 
-  width: 7em;
-}
 
-.talk-occurrence .badge { 
-  width: 5em;
-}
 
 
 
@@ -1687,7 +1683,10 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-top: 5px;
   }
 
-  .service-content-box { text-align: left; }
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+  }
 
   /* testimonials */
 
@@ -2008,10 +2007,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   /* service */
 
-  /* .service-list {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 25px;
-  } */
+
 
   /* testimonials */
 
