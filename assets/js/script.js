@@ -41,27 +41,48 @@ modeToggleBtn.addEventListener("click", () => {
   updateLightMode(localStorage.getItem(lightModeKey) !== "enabled");
 });
 
-// page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
+const pages = document.querySelectorAll("article[data-page]");
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+function resolvePageFromUrl() {
+  const pageName = window.location.hash.slice(1);
+  let matchFound = false;
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
+  pages.forEach((page, index) => {
+    const isActive = page.dataset.page === pageName;
 
+    page.classList.toggle("active", isActive);
+    navigationLinks[index].classList.toggle("active", isActive);
+
+    if (isActive) matchFound = true;
   });
+
+  // No hash OR invalid hash → activate default article
+  if (!pageName || !matchFound) {
+    pages.forEach((page, index) => {
+      const isDefault = index === 0;
+
+      page.classList.toggle("active", isDefault);
+      navigationLinks[index].classList.toggle("active", isDefault);
+    });
+  }
+
+  window.scrollTo(0, 0);
 }
+
+// Navigation click handling
+navigationLinks.forEach(link => {
+  link.addEventListener("click", function () {
+    const pageName = this.textContent.trim().toLowerCase();
+    location.hash = pageName; // triggers hashchange
+  });
+});
+
+// Initial load
+window.addEventListener("DOMContentLoaded", resolvePageFromUrl);
+
+// URL changes (manual edit, back/forward)
+window.addEventListener("hashchange", resolvePageFromUrl);
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }

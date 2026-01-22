@@ -1,5 +1,5 @@
 ---
-- title: Quantum computing for drug development
+- title: "Fullqubit alchemist: Quantum algorithm for alchemical free energy calculation"
   venue: ESxAI Seminar, UCB Pharma
   type: Invited Talk
   date: 2025-10-30
@@ -11,7 +11,7 @@
   venue: QTML 2023
   type: Contributed Talk
   date: 2023-11-22
-- title: Post-variational strategies for quantum machine learning
+- title: Post-variational quantum neural networks
   venue: QML Seminar, QAISG
   type: Seminar
   date: 2023-10-24
