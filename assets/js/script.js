@@ -359,53 +359,53 @@ function renderTalkGroup(title, talks) {
   `;
 }
 
-document.getElementById("talks").innerHTML =
-  Array.from(groupByTitle(talksData).entries())
-    .map(([title, talks]) => renderTalkGroup(title, talks))
-    .join("");
+/* ---------- Render talks ---------- */
+const talksContainer = document.getElementById("talks");
 
-Array.from(document.getElementsByClassName('last-modified')).forEach(element => {
-  element.innerHTML = new Date(document.lastModified).toLocaleString('en-US', { month: 'short', year: "numeric" });
+talksContainer.innerHTML = [...groupByTitle(talksData)]
+  .map(([title, talks]) => renderTalkGroup(title, talks))
+  .join("");
+
+/* ---------- Last modified dates ---------- */
+const lastModifiedText = new Date(document.lastModified).toLocaleString("en-US", {
+  month: "short",
+  year: "numeric",
 });
 
+document
+  .querySelectorAll(".last-modified")
+  .forEach(el => (el.textContent = lastModifiedText));
+
+/* ---------- Email encoding / decoding ---------- */
+const to2Hex = value => value.toString(16).padStart(2, "0");
 
 function encodeEmail(email, key) {
-  var encodedKey = key.toString(16);
-  var encodedString = make2DigitsLong(encodedKey);
-  var result = "";
-  for (var n = 0; n < email.length; n++) {
-    var charCode = email.charCodeAt(n);
-    var encoded = charCode ^ key;
-    var value = encoded.toString(16);
-    result += make2DigitsLong(value);
+  let result = "";
+
+  for (let i = 0; i < email.length; i++) {
+    result += to2Hex(email.charCodeAt(i) ^ key);
   }
-  result += encodedString;
-  return result;
+
+  return result + to2Hex(key);
 }
 
-function make2DigitsLong(value) {
-  return value.length === 1
-    ? '0' + value
-    : value;
-}
+function decodeEmail(encoded) {
+  const key = parseInt(encoded.slice(-2), 16);
+  let email = "";
 
-function decodeEmail(encodedString) {
-  var email = "";
-  var keyInHex = encodedString.substr(encodedString.length - 2);
-  var key = parseInt(keyInHex, 16);
-  for (var n = 0; n < encodedString.length - 2; n += 2) {
-    var charInHex = encodedString.substr(n, 2)
-    var char = parseInt(charInHex, 16);
-    var output = char ^ key;
-    email += String.fromCharCode(output);
+  for (let i = 0; i < encoded.length - 2; i += 2) {
+    email += String.fromCharCode(
+      parseInt(encoded.slice(i, i + 2), 16) ^ key
+    );
   }
+
   return email;
 }
 
+/* ---------- Apply decoded emails ---------- */
+document.querySelectorAll(".protected").forEach(el => {
+  const encoded = el.getAttribute("eml");
+  if (!encoded) return;
 
-var protectedElements = document.getElementsByClassName("protected");
-for (var i = 0; i < protectedElements.length; i++) {
-  var encoded = protectedElements[i].getAttribute("eml");
-  var decoded = decodeEmail(encoded);
-  protectedElements[i].href = 'mailto:' + decoded;
-}
+  el.href = `mailto:${decodeEmail(encoded)}`;
+});
