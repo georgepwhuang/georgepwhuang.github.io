@@ -1,13 +1,13 @@
 ---
 - headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" accepted at ICLR 2026.'
   date: 2026-01-26
-- headline: 'I will be visiting the University of Edinburgh from 5 to 13 February.'
+- headline: 'I will be visiting the Quantum Software Lab at the University of Edinburgh from 5 to 13 February.'
   date: 2026-01-21
 - headline: '"[Classical combinations of quantum states for solving banded circulant linear systems](https://iopscience.iop.org/article/10.1088/1367-2630/ae3205/)" accepted at New Journal of Physics.'
   date: 2025-12-30
 - headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" released on arXiv.'
   date: 2025-10-09
-- headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" accepted at QTML2025 as regular talk.'
+- headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" accepted at QTML 2025 as regular talk.'
   date: 2025-09-05
 - headline: '"[Fullqubit alchemist: Quantum algorithm for alchemical free energy calculations](https://arxiv.org/abs/2508.16719)" released on arXiv.'
   date: 2025-08-26
@@ -21,10 +21,10 @@
   date: 2024-10-08
 - headline: I begin my doctoral studies at Oxford.
   date: 2024-10-06
-- headline: '"[Quantum algorithm for large-scale market equilibrium computation](https://arxiv.org/abs/2405.13788)" accepted at NeurIPS2024.'
+- headline: '"[Quantum algorithm for large-scale market equilibrium computation](https://arxiv.org/abs/2405.13788)" accepted at NeurIPS 2024.'
   date: 2024-09-25
 - headline: '"[Concept learning of parameterized quantum models from limited measurements](https://arxiv.org/abs/2408.05116)" released on arXiv.'
   date: 2024-08-12
-- headline: '"[Concept learning of parameterized quantum models from limited measurements](https://arxiv.org/abs/2408.05116)" accepted at QTML2024 as regular talk.'
+- headline: '"[Concept learning of parameterized quantum models from limited measurements](https://arxiv.org/abs/2408.05116)" accepted at QTML 2024 as regular talk.'
   date: 2024-08-10
             
