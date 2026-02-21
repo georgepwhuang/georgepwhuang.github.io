@@ -1,8 +1,3 @@
-const links = document.getElementsByTagName("a");
-for (var i = 0; i < links.length; i++) {
-  links[i].target = "_blank";
-}
-
 // Applying Light mode...
 const modeToggleBtn = document.getElementById("mode-toggle-btn");
 const modeBtn = document.getElementById("mood-btn");
@@ -409,3 +404,8 @@ document.querySelectorAll(".protected").forEach(el => {
 
   el.href = `mailto:${decodeEmail(encoded)}`;
 });
+
+const links = document.getElementsByTagName("a");
+for (var i = 0; i < links.length; i++) {
+  links[i].target = "_blank";
+}
