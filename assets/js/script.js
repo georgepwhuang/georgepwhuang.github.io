@@ -302,7 +302,7 @@ function toggleNews() {
 const TALK_TYPE_BADGES = {
   "Invited Talk": "var(--red)",
   "Seminar": "var(--azure)",
-  "Contributed Talk": "var(--violet)"
+  "Contributed Talk": "var(--magenta)"
 };
 
 const TALK_TYPE_PILL = {

@@ -3,10 +3,10 @@
   date: 2026-02-20
 - headline: '"[QKAN: Quantum Kolmogorov-Arnold Networks with applications in machine learning and multivariate state preparation](https://arxiv.org/abs/2410.04435)" accepted at npj Quantum Information.'
   date: 2026-02-10
+- headline: 'I am visiting the Quantum Software Lab at the University of Edinburgh from 5 to 13 February.'
+  date: 2026-02-05
 - headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" accepted at ICLR 2026.'
   date: 2026-01-26
-- headline: 'I will be visiting the Quantum Software Lab at the University of Edinburgh from 5 to 13 February.'
-  date: 2026-01-21
 - headline: '"[Classical combinations of quantum states for solving banded circulant linear systems](https://iopscience.iop.org/article/10.1088/1367-2630/ae3205/)" accepted at New Journal of Physics.'
   date: 2025-12-30
 - headline: '"[Accelerating inference for multilayer neural networks with quantum computers](https://arxiv.org/abs/2510.07195)" released on arXiv.'
@@ -31,4 +31,8 @@
   date: 2024-08-12
 - headline: '"[Concept learning of parameterized quantum models from limited measurements](https://arxiv.org/abs/2408.05116)" accepted at QTML 2024 as regular talk.'
   date: 2024-08-10
+- headline: '"[Concept learning of parameterized quantum models from limited measurements](https://arxiv.org/abs/2408.05116)" accepted at AQIS 2024 as regular talk.'
+  date: 2024-06-28
+- headline: '"[Quantum algorithm for large-scale market equilibrium computation](https://arxiv.org/abs/2405.13788)" released on arXiv.'
+  date: 2024-05-22
             
