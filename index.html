@@ -5,6 +5,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Po-Wei (George) Huang - DPhil candidate at the University of Oxford researching quantum algorithms.">
+  <meta name="keywords" content="Po-Wei Huang, George Huang, quantum computing, quantum algorithms, Oxford">
+  <meta name="author" content="Po-Wei Huang">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://georgepwhuang.github.io/">
+  <meta property="og:title" content="Po-Wei George Huang">
+  <meta property="og:description" content="DPhil candidate at the University of Oxford researching quantum algorithms.">
+  <meta property="og:image" content="https://georgepwhuang.github.io/images/preview.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="https://georgepwhuang.github.io/">
+  <meta property="twitter:title" content="Po-Wei George Huang">
+  <meta property="twitter:description" content="DPhil candidate at the University of Oxford researching quantum algorithms.">
+  <meta property="twitter:image" content="https://georgepwhuang.github.io/images/preview.png">
+  
   <title>Po-Wei George Huang</title>
   <!--
     - favicon
@@ -22,8 +40,10 @@
   <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
   <link rel="stylesheet" href="/assets/css/solid.min.css">
   <link rel="stylesheet" href="/assets/css/brands.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +55,7 @@
       - #SIDEBAR
     -->
     <aside class="sidebar" data-sidebar>
-      <button id="mode-toggle-btn" style="z-index: 50;">
+      <button id="mode-toggle-btn" style="z-index: 50;" aria-label="Toggle light/dark mode">
         <div id="mood-btn" class="toggle-mode">
           <i id="mood-icon" class="active fa-solid fa-moon"></i>
         </div>
@@ -72,34 +92,34 @@
             </div>
             <div class="contact-info">
               <p class="contact-title">Location</p>
-              <p class="detail">N0.03, Mathematical Institute, University of Oxford, OX2 6GG</a>
+              <p class="detail">N0.03, Mathematical Institute, University of Oxford, OX2 6GG</p>
             </div>
           </li>
         </ul>
         <div class="separator"></div>
         <ul class="social-list">
           <li class="social-item">
-            <a href="#" eml="5a45075d4f4304425f4b444d6a474b5e4259044552044b49045f412a" class="social-link protected">
+            <a href="#" eml="5a45075d4f4304425f4b444d6a474b5e4259044552044b49045f412a" class="social-link protected" aria-label="Email">
               <i class="fa-solid fa-envelope-open-text"></i>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://www.linkedin.com/in/huangpowei" class="social-link">
+            <a href="https://www.linkedin.com/in/huangpowei" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer">
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://orcid.org/0009-0009-6973-5009" class="social-link">
+            <a href="https://orcid.org/0009-0009-6973-5009" class="social-link" aria-label="ORCID" rel="noopener noreferrer">
               <i class="fa-brands fa-orcid"></i>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://scholar.google.com/citations?&user=gciMEcAAAAAJ" class="social-link">
+            <a href="https://scholar.google.com/citations?&user=gciMEcAAAAAJ" class="social-link" aria-label="Google Scholar" rel="noopener noreferrer">
               <i class="fa-brands fa-google-scholar"></i>
             </a>
           </li>
           <li class="social-item">
-            <a href="https://www.maths.ox.ac.uk/people/po-wei.huang" class="social-link">
+            <a href="https://www.maths.ox.ac.uk/people/po-wei.huang" class="social-link" aria-label="Oxford Profile" rel="noopener noreferrer">
               <i class="fa-solid fa-link"></i>
             </a>
           </li>
@@ -188,27 +208,7 @@
             </div>
             <h3>Education</h3>
           </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">University of Oxford</h4>
-              <span>DPhil in Mathematics</span>
-              <p><i>Oct 2024 — Present</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Theory and algorithms for quantum computation</li>
-                <li>Advisors: Prof. B&aacutelint Koczor, Prof. Simon Benjamin and Prof. Artur Ekert</li>
-              </ul>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">National University of Singapore</h4>
-              <span>BComp (Hons) in Computer Science</span>
-              <p><i>Aug 2020 — Jun 2023</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Honors with highest distinction · Second major in mathematics</li>
-                <li>Dual specialization in algorithms/theory and AI/ML</li>
-                <li>Advisors: Prof. Patrick Rebentrost and Prof. Rahul Jain</li>
-              </ul>
-            </li>
-          </ol>
+          <ol class="timeline-list" id="education-list"></ol>
         </section>
         <section class="timeline">
           <div class="title-wrapper">
@@ -217,48 +217,7 @@
             </div>
             <h3>Research</h3>
           </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Graduate Researcher</h4>
-              <span>Quantum Motion Technologies, United Kingdom</span>
-              <p><i>Nov 2024 — Present</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Supervisors: Prof. Simon Benjamin, Dr. Thomas R. Bromley</li>
-              </ul>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Visiting Student</h4>
-              <span>Quantum Software Lab, University of Edinburgh, United Kingdom</span>
-              <p><i>Feb 2026</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Hosts: Dr. Jinge Bao, Prof. Elham Kashefi</li>
-              </ul>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Research Assistant</h4>
-              <span>The Entangled Computing Lab, Centre for Quantum Technologies, Singapore</span>
-              <p><i>May 2023 — Sep 2024</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Principal Investigator: Prof. Patrick Rebentrost</li>
-              </ul>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Undergraduate Researcher</h4>
-              <span>Web IR/NLP Group, National Univerisity of Singapore, Singapore</span>
-              <p><i>Apr 2021 — Jul 2022</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Advisor: Prof. Min-Yen Kan</li>
-              </ul>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Student Researcher</h4>
-              <span>Department of Chemistry, National Cheng Kung University, Taiwan</span>
-              <p><i>Sep 2018 — Apr 2019</i></p>
-              <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
-                <li>Advisor: Prof. Hong-Ping Lin</li>
-              </ul>
-            </li>
-          </ol>
+          <ol class="timeline-list" id="research-list"></ol>
         </section>
         <section class="timeline">
           <div class="title-wrapper">
@@ -267,18 +226,7 @@
             </div>
             <h3>Industry</h3>
           </div>
-          <ol class="timeline-list">
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Software Engineering Intern</h4>
-              <span>Continental AG Singapore</span>
-              <p><i>May 2022 — Jul 2022</i></p>
-            </li>
-            <li class="timeline-item">
-              <h4 class="timeline-item-title">Information Technology Intern</h4>
-              <span>Taiwan Semiconductor Manufacturing Company (TSMC)</span>
-              <p><i>Jul 2021 — Sep 2021</i></p>
-            </li>
-          </ol>
+          <ol class="timeline-list" id="industry-list"></ol>
         </section>
       </article>
       <!--
@@ -392,52 +340,7 @@
             </div>
             <h3>Awards & Honours</h3>
           </div>
-          <ul class="service-list">
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">EPSRC Quantum Technologies DTP CASE Conversion Studentship</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge">Oct2024 – Mar2028</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Alan Tayler Scholarship in Mathematics</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge">Oct2025 – Sep2027</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Taiwanese Government Scholarship to Study Abroad</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge">Jun2025 – May2027</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">School of Computing Turing Research Programme</h4>
-                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-                <span class="badge">Feb2022 – Jul2023</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Honour List of Student Tutors</h4>
-                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-                <span class="badge">AY2021 – 2022</span>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Dean's List</h4>
-                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-                <span class="badge">Aut20</span>
-                <span class="badge">Spr21</span>
-                <span class="badge">Aut22</span>
-              </div>
-            </li>
-          </ul>
+          <ul class="service-list" id="awards-list"></ul>
         </section>
         <section>
           <div class="title-wrapper">
@@ -446,52 +349,7 @@
             </div>
             <h3>Teaching</h3>
           </div>
-          <ul class="service-list">
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">C7.4 Introduction to Quantum Information</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge" style="background-color:var(--teal);">Tutor</span>
-                <span class="badge">HT26</span>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">B8.5 Graph Theory</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge" style="background-color:var(--brown);">TA</span>
-                <span class="badge">MT25</span>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">B7.3 Further Quantum Theory</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge" style="background-color:var(--brown);">TA</span>
-                <span class="badge">HT25</span>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">B8.4 Information Theory</h4>
-                <span class="badge" style="background-color:var(--oxford-navy);">Oxford</span>
-                <span class="badge" style="background-color:var(--brown);">TA</span>
-                <span class="badge">MT24</span>
-              </div>
-            </li>
-
-            <li class="service-item">
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">CS2040(S) Data Structure and Algorithms</h4>
-                <span class="badge" style="background-color:var(--nus-orange);">NUS</span>
-                <span class="badge" style="background-color:var(--teal);">Lab Tutor</span>
-                <span class="badge">Spr21 - Spr23</span>
-              </div>
-            </li>
-          </ul>
+          <ul class="service-list" id="teaching-list"></ul>
         </section>
         <section style="margin-top:30px;">
           <div class="title-wrapper">
@@ -500,25 +358,7 @@
             </div>
             <h3>Posters</h3>
           </div>
-          <ul class="about-text list" style="list-style: none;">
-            <li style="margin-bottom:12px;">
-              <b>Fullqubit alchemist: Quantum algorithm for alchemical free energy calculation</b><br>
-              QIP 2026 · 26 Jan 2026<br>
-              SEEQA 2025 · 27 Aug 2025
-            </li>
-            <li style="margin-bottom:12px;">
-              <b>Quantum algorithm for large-scale market equilibrium computation</b><br>
-              NeurIPS 2024 · 11 Dec 2024
-            </li>
-            <li style="margin-bottom:12px;">
-              <b>Hybrid quantum-classical algorithms for solving banded circulant linear systems</b><br>
-              QIP 2024 · 15 Jan 2024
-            </li>
-            <li>
-              <b>Lightweight contextual logical structure recovery.</b><br>
-              SDP 2022 · 17 Oct 2022
-            </li>
-          </ul>
+          <ul class="about-text list" id="posters" style="list-style: none;"></ul>
         </section>
         <section>
           <div class="title-wrapper">
@@ -527,25 +367,7 @@
             </div>
             <h3>Academic Service</h3>
           </div>
-          <ul class="about-text list" style="list-style: none; padding-left: 0;">
-            <p>
-              <b>Journal Reviewer</b><br>
-              International Journal of Quantum Information ·
-              Quantum Machine Intelligence ·
-              npj Quantum Information ·
-               IEEE Transactions on Quantum Engineering
-            </p>
-
-            <p style="margin-top:10px;">
-              <b>Conference Reviewer</b><br>
-              QTML 2023 · TAMC 2024 · TQC 2024 · NeurIPS 2025 · QIP 2026 · ICLR 2026
-            </p>
-
-            <p style="margin-top:10px;">
-              <b>Conference Volunteer</b><br>
-              SEEQA 2025
-            </p>
-          </ul>
+          <ul class="about-text list" id="services-list" style="list-style: none; padding-left: 0;"></ul>
         </section>
       </article>
       <p class="copyright">
@@ -564,7 +386,7 @@
   <script src="/assets/js/yaml.min.js"></script>
   <script src="/assets/js/script.js"></script>
   <script src="/assets/js/bibtex_js.min.js"></script>
-  <script type="text/javascript"
+  <script type="text/javascript" defer
     src="https://clustrmaps.com/globe.js?d=RqR0-tM_DVHQvWiaE4Tf3z1GNHZmopCIm2IAW2lkG3k"></script>
 </body>
 

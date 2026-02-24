@@ -112,28 +112,44 @@ const testimonialsModalFunc = function () {
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
-function copyToClipboard(text) {
-  if (window.clipboardData && window.clipboardData.setData) {
-    // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
-    return window.clipboardData.setData("Text", text);
-
+// Add keyboard support for modal (Escape key)
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modalContainer.classList.contains("active")) {
+    testimonialsModalFunc();
   }
-  else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-    var textarea = document.createElement("textarea");
-    textarea.textContent = text;
-    textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      return document.execCommand("copy");  // Security exception may be thrown by some browsers.
-    }
-    catch (ex) {
-      console.warn("Copy to clipboard failed.", ex);
-      return prompt("Copy to clipboard: Ctrl+C, Enter", text);
-    }
-    finally {
-      document.body.removeChild(textarea);
-    }
+});
+
+function copyToClipboard(text) {
+  // Use modern Clipboard API if available
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text)
+      .then(() => true)
+      .catch(err => {
+        console.warn("Clipboard API failed, falling back", err);
+        return fallbackCopyToClipboard(text);
+      });
+  } else {
+    return fallbackCopyToClipboard(text);
+  }
+}
+
+function fallbackCopyToClipboard(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.left = "-999999px";
+  textarea.style.top = "-999999px";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    const successful = document.execCommand("copy");
+    document.body.removeChild(textarea);
+    return successful;
+  } catch (err) {
+    console.warn("Fallback copy failed", err);
+    document.body.removeChild(textarea);
+    return false;
   }
 }
 
@@ -144,24 +160,25 @@ function loadModal(testimonial) {
 }
 
 function copyText() {
-  // Get the text field
-  var copyText = modalText.textContent;
-
-  // Copy the text inside the text field
-  copyToClipboard(copyText.trim());
-
-  // Alert the copied text
-  alert("BibTeX copied!");
+  const copyText = modalText.textContent;
+  copyToClipboard(copyText.trim()).then(success => {
+    if (success) {
+      // Could be replaced with a toast notification
+      alert("BibTeX copied!");
+    } else {
+      alert("Failed to copy BibTeX. Please try manually.");
+    }
+  });
 }
 
 function download() {
-  var text = modalText.textContent.trim();
-  var filename = text.split(",")[0].split("{")[1] + ".bib";
-  const a = document.createElement('a')
-  const blob = new Blob([text], { type: "data:text/plain;charset=utf-8" })
-  const url = URL.createObjectURL(blob, { oneTimeOnly: true })
-  a.setAttribute('href', url)
-  a.setAttribute('download', filename)
+  const text = modalText.textContent.trim();
+  const filename = text.split(",")[0].split("{")[1] + ".bib";
+  const a = document.createElement('a');
+  const blob = new Blob([text], { type: "data:text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  a.setAttribute('href', url);
+  a.setAttribute('download', filename);
   a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
@@ -170,8 +187,8 @@ function download() {
 }
 
 function toggleBib(item) {
-  id = item.getAttribute("key");
-  abs = document.getElementById("bib" + id)
+  const id = item.getAttribute("key");
+  const abs = document.getElementById("bib" + id);
   abs.classList.toggle("active");
   if (abs.classList.contains('active')) {
     abs.style.maxHeight = abs.scrollHeight + 'px';
@@ -180,7 +197,7 @@ function toggleBib(item) {
   }
 }
 
-const auxData = YAML.load("files/aux.yml")
+const auxData = YAML.load("files/aux.yml") || {};
 
 function insertAbstract(entry, id, absText) {
   entry.querySelector(".clickables")?.insertAdjacentHTML(
@@ -258,12 +275,20 @@ function parseForLinks(markdown) {
 
 const MAX_RECENT_NEWS = 7;
 
-const newsData = YAML.load("files/news.yml")
-  .map(item => ({
-    ...item,
-    date: new Date(item.date)
-  }))
-  .sort((a, b) => b.date - a.date);
+// Load and process news data efficiently
+function loadNewsData() {
+  const newsData = (YAML.load("files/news.yml") || [])
+    .map(item => ({
+      ...item,
+      date: new Date(item.date)
+    }))
+    .sort((a, b) => b.date - a.date);
+  
+  const recentNews = newsData.slice(0, MAX_RECENT_NEWS);
+  const olderNews = newsData.slice(MAX_RECENT_NEWS);
+  
+  return { recentNews, olderNews };
+}
 
 function renderNewsItem(item) {
   return `
@@ -273,14 +298,24 @@ function renderNewsItem(item) {
   `;
 }
 
-const recentNews = newsData.slice(0, MAX_RECENT_NEWS);
-const olderNews  = newsData.slice(MAX_RECENT_NEWS);
+// Batch render news items
+function renderNews() {
+  const { recentNews, olderNews } = loadNewsData();
+  
+  const newsContainer = document.getElementById("news");
+  const oldsContainer = document.getElementById("olds");
+  
+  if (newsContainer) {
+    newsContainer.innerHTML = recentNews.map(renderNewsItem).join("");
+  }
+  
+  if (oldsContainer) {
+    oldsContainer.innerHTML = olderNews.map(renderNewsItem).join("");
+  }
+}
 
-document.getElementById("news").innerHTML =
-  recentNews.map(renderNewsItem).join("");
-
-document.getElementById("olds").innerHTML =
-  olderNews.map(renderNewsItem).join("");
+// Call once on load
+renderNews();
 
 
 function toggleNews() {
@@ -302,21 +337,41 @@ function toggleNews() {
 const TALK_TYPE_BADGES = {
   "Invited Talk": "var(--red)",
   "Seminar": "var(--azure)",
-  "Contributed Talk": "var(--magenta)"
+  "Contributed Talk": "var(--violet)",
+  "Poster": "var(--orange-yellow-crayola)"
 };
 
 const TALK_TYPE_PILL = {
   "Invited Talk": "Invited",
   "Seminar": "Seminar",
-  "Contributed Talk": "Contrib"
+  "Contributed Talk": "Contrib",
+  "Poster": "Poster"
 };
 
-const talksData = YAML.load("files/talks.yml")
-  .map(talk => ({
-    ...talk,
-    date: new Date(talk.date)
-  }))
-  .sort((a, b) => b.date - a.date);
+const SCHOOL_TYPE_BADGES = {
+  "NUS": "var(--nus-orange)",
+  "Oxford": "var(--oxford-navy)"
+};
+
+const TEACH_TYPE_BADGES = {
+  "Tutor": "var(--teal)",
+  "TA": "var(--brown)"
+};
+
+// Load and process talks data efficiently
+function loadTalksData() {
+  const talksData = (YAML.load("files/talks.yml") || [])
+    .map(talk => ({
+      ...talk,
+      date: new Date(talk.date)
+    }))
+    .sort((a, b) => b.date - a.date);
+  
+  const talks = talksData.filter(item => item.type !== "Poster");
+  const posters = talksData.filter(item => item.type === "Poster");
+  
+  return { talks, posters };
+}
 
 function groupByTitle(talks) {
   const groups = new Map();
@@ -354,12 +409,168 @@ function renderTalkGroup(title, talks) {
   `;
 }
 
-/* ---------- Render talks ---------- */
-const talksContainer = document.getElementById("talks");
+function renderPosterGroup(title, posters) {
+  return `
+    <li style="margin-bottom:12px;">
+      <b>${title}</b><br>
+      ${posters.map(p => `${p.venue} · ${toDateString(p.date)}`).join("<br>\n      ")}
+    </li>
+  `;
+}
 
-talksContainer.innerHTML = [...groupByTitle(talksData)]
-  .map(([title, talks]) => renderTalkGroup(title, talks))
-  .join("");
+/* ---------- Render talks ---------- */
+function renderTalks() {
+  const { talks, posters } = loadTalksData();
+  
+  const talksContainer = document.getElementById("talks");
+  if (talksContainer) {
+    talksContainer.innerHTML = [...groupByTitle(talks)]
+      .map(([title, talks]) => renderTalkGroup(title, talks))
+      .join("");
+  }
+  
+  /* ---------- Render posters ---------- */
+  const postersContainer = document.getElementById("posters");
+  if (postersContainer) {
+    postersContainer.innerHTML = [...groupByTitle(posters)]
+      .map(([title, posters]) => renderPosterGroup(title, posters))
+      .join("");
+  }
+}
+
+// Call once on load
+renderTalks();
+
+/* ---------- Render Education ---------- */
+function renderEducation() {
+  const educationData = YAML.load("files/education.yml") || [];
+  const container = document.getElementById("education-list");
+  
+  if (!container) return;
+  
+  container.innerHTML = educationData.map(edu => `
+    <li class="timeline-item">
+      <h4 class="timeline-item-title">${edu.institution}</h4>
+      <span>${edu.degree}</span>
+      <p><i>${edu.period}</i></p>
+      ${edu.details && edu.details.length > 0 ? `
+        <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+          ${edu.details.map(detail => `<li>${detail}</li>`).join('')}
+        </ul>
+      ` : ''}
+    </li>
+  `).join('');
+}
+
+/* ---------- Render Experiences ---------- */
+function renderExperiences() {
+  const experiencesData = YAML.load("files/experiences.yml") || { research: [], industry: [] };
+  
+  // Render research
+  const researchContainer = document.getElementById("research-list");
+  if (researchContainer) {
+    researchContainer.innerHTML = experiencesData.research.map(exp => `
+      <li class="timeline-item">
+        <h4 class="timeline-item-title">${exp.title}</h4>
+        <span>${exp.organization}</span>
+        <p><i>${exp.period}</i></p>
+        ${exp.details && exp.details.length > 0 ? `
+          <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+            ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
+          </ul>
+        ` : ''}
+      </li>
+    `).join('');
+  }
+  
+  // Render industry
+  const industryContainer = document.getElementById("industry-list");
+  if (industryContainer) {
+    industryContainer.innerHTML = experiencesData.industry.map(exp => `
+      <li class="timeline-item">
+        <h4 class="timeline-item-title">${exp.title}</h4>
+        <span>${exp.organization}</span>
+        <p><i>${exp.period}</i></p>
+        ${exp.details && exp.details.length > 0 ? `
+          <ul class="timeline-text list" style="list-style: none; padding-left: 0;">
+            ${exp.details.map(detail => `<li>${detail}</li>`).join('')}
+          </ul>
+        ` : ''}
+      </li>
+    `).join('');
+  }
+}
+
+/* ---------- Render Awards ---------- */
+function renderAwards() {
+  const awardsData = YAML.load("files/awards.yml") || [];
+  const container = document.getElementById("awards-list");
+  
+  if (!container) return;
+  
+  container.innerHTML = awardsData.map(award => `
+    <li class="service-item">
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">${award.title}</h4>
+        <span class="badge" style="background-color:${SCHOOL_TYPE_BADGES[award.institution]};">${award.institution}</span>
+        ${award.period ? `<span class="badge">${award.period}</span>` : ''}
+        ${award.periods ? award.periods.map(p => `<span class="badge">${p}</span>`).join(' ') : ''}
+      </div>
+    </li>
+  `).join('');
+}
+
+/* ---------- Render Teaching ---------- */
+function renderTeaching() {
+  const teachingData = YAML.load("files/teaching.yml") || [];
+  const container = document.getElementById("teaching-list");
+  
+  if (!container) return;
+  
+  container.innerHTML = teachingData.map(course => `
+    <li class="service-item">
+      <div class="service-content-box">
+        <h4 class="h4 service-item-title">${course.course}</h4>
+        <span class="badge" style="background-color:${SCHOOL_TYPE_BADGES[course.institution]};">${course.institution}</span>
+        <span class="badge" style="background-color:${TEACH_TYPE_BADGES[course.role]};">${course.role}</span>
+        ${course.period ? `<span class="badge">${course.period}</span>` : ''}
+        ${course.periods ? course.periods.map(p => `<span class="badge">${p}</span>`).join(' ') : ''}
+      </div>
+    </li>
+  `).join('');
+}
+
+/* ---------- Render Academic Services ---------- */
+function renderServices() {
+  const servicesData = YAML.load("files/services.yml") || { journal: [], conference: [], volunteer: [] };
+  const container = document.getElementById("services-list");
+  
+  if (!container) return;
+  
+  container.innerHTML = `
+    <p>
+      <b>Journal Reviewer</b><br>
+      ${servicesData.journal.join(' · ')}
+    </p>
+    
+    <p style="margin-top:10px;">
+      <b>Conference Reviewer</b><br>
+      ${servicesData.conference.join(' · ')}
+    </p>
+    
+    <p style="margin-top:10px;">
+      <b>Conference Volunteer</b><br>
+      ${servicesData.volunteer.join(' · ')}
+    </p>
+  `;
+}
+
+// Call render functions on load
+renderEducation();
+renderExperiences();
+renderAwards();
+renderTeaching();
+renderServices();
 
 /* ---------- Last modified dates ---------- */
 const lastModifiedText = new Date(document.lastModified).toLocaleString("en-US", {
@@ -406,6 +617,6 @@ document.querySelectorAll(".protected").forEach(el => {
 });
 
 const links = document.getElementsByTagName("a");
-for (var i = 0; i < links.length; i++) {
+for (let i = 0; i < links.length; i++) {
   links[i].target = "_blank";
 }

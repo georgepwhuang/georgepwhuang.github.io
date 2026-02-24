@@ -1,0 +1,14 @@
+---
+- institution: University of Oxford
+  degree: DPhil in Mathematics
+  period: Oct 2024 — Present
+  details:
+    - Theory and algorithms for quantum computation
+    - "Advisors: Prof. Bálint Koczor, Prof. Simon Benjamin and Prof. Artur Ekert"
+- institution: National University of Singapore
+  degree: BComp (Hons) in Computer Science
+  period: Aug 2020 — Jun 2023
+  details:
+    - Honors with highest distinction · Second major in mathematics
+    - Dual specialization in algorithms/theory and AI/ML
+    - "Advisors: Prof. Patrick Rebentrost and Prof. Rahul Jain"

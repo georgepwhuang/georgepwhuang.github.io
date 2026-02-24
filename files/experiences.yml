@@ -1,0 +1,37 @@
+---
+research:
+  - title: Graduate Researcher
+    organization: Quantum Motion Technologies, United Kingdom
+    period: Nov 2024 — Present
+    details:
+      - "Supervisors: Prof. Simon Benjamin, Dr. Thomas R. Bromley"
+  - title: Visiting Student
+    organization: Quantum Software Lab, University of Edinburgh, United Kingdom
+    period: Feb 2026
+    details:
+      - "Hosts: Dr. Jinge Bao, Prof. Elham Kashefi"
+  - title: Research Assistant
+    organization: The Entangled Computing Lab, Centre for Quantum Technologies, Singapore
+    period: May 2023 — Sep 2024
+    details:
+      - "Principal Investigator: Prof. Patrick Rebentrost"
+  - title: Undergraduate Researcher
+    organization: Web IR/NLP Group, National Univerisity of Singapore, Singapore
+    period: Apr 2021 — Jul 2022
+    details:
+      - "Advisor: Prof. Min-Yen Kan"
+  - title: Student Researcher
+    organization: Department of Chemistry, National Cheng Kung University, Taiwan
+    period: Sep 2018 — Apr 2019
+    details:
+      - "Advisor: Prof. Hong-Ping Lin"
+
+industry:
+  - title: Software Engineering Intern
+    organization: Continental AG Singapore
+    period: May 2022 — Jul 2022
+    details: []
+  - title: Information Technology Intern
+    organization: Taiwan Semiconductor Manufacturing Company (TSMC)
+    period: Jul 2021 — Sep 2021
+    details: []

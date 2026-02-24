@@ -1,0 +1,32 @@
+---
+- course: C7.4 Introduction to Quantum Information
+  institution: Oxford
+  role: Tutor
+  period: HT26
+- course: B8.5 Graph Theory
+  institution: Oxford
+  role: TA
+  period: MT25
+- course: B7.3 Further Quantum Theory
+  institution: Oxford
+  role: TA
+  period: HT25
+- course: B8.4 Information Theory
+  institution: Oxford
+  role: TA
+  period: MT24
+- course: CS2040 Data Structure and Algorithms
+  institution: NUS
+  role: Tutor
+  periods: 
+    - Spr21
+    - Sum21
+    - Spr22
+    - Sum22
+    - Spr23
+- course: CS2040S Data Structure and Algorithms
+  institution: NUS
+  role: Tutor
+  periods: 
+    - Fall21
+    - Fall22
