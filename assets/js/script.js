@@ -542,7 +542,7 @@ function renderTeaching() {
 
 /* ---------- Render Academic Services ---------- */
 function renderServices() {
-  const servicesData = YAML.load("files/services.yml") || { journal: [], conference: [], volunteer: [] };
+  const servicesData = YAML.load("files/services.yml") || { journalReviewer: [], conferenceReviewer: [], conferenceVolunteer: [] };
   const container = document.getElementById("services-list");
   
   if (!container) return;
@@ -550,17 +550,17 @@ function renderServices() {
   container.innerHTML = `
     <p>
       <b>Journal Reviewer</b><br>
-      ${servicesData.journal.join(' · ')}
+      ${servicesData.journalReviewer.join(' · ')}
     </p>
     
     <p style="margin-top:10px;">
       <b>Conference Reviewer</b><br>
-      ${servicesData.conference.join(' · ')}
+      ${servicesData.conferenceReviewer.join(' · ')}
     </p>
     
     <p style="margin-top:10px;">
       <b>Conference Volunteer</b><br>
-      ${servicesData.volunteer.join(' · ')}
+      ${servicesData.conferenceVolunteer.join(' · ')}
     </p>
   `;
 }

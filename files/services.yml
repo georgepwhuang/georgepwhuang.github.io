@@ -1,11 +1,11 @@
 ---
-journal:
+journalReviewer:
   - International Journal of Quantum Information
   - Quantum Machine Intelligence
   - npj Quantum Information
   - IEEE Transactions on Quantum Engineering
 
-conference:
+conferenceReviewer:
   - QTML 2023
   - TAMC 2024
   - TQC 2024
@@ -13,5 +13,6 @@ conference:
   - QIP 2026
   - ICLR 2026
 
-volunteer:
+conferencevolunteer:
   - SEEQA 2025
+  - QCTiP 2026
