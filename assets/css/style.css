@@ -65,18 +65,18 @@
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --nav-bar: hsla(240, 1%, 17%, 0.95);
 
-  --red: #b82727;
-  --brown: #8a531d;
-  --yellow: #636315;
-  --olive: #416b16;
-  --green: #187018;
-  --teal: #176e42;
-  --cyan: #166b6b;
-  --azure: #2263a3;
-  --blue: #4c4cd9;
-  --violet: #8333d4;
-  --magenta: #a623a6;
-  --purple: #b3256c;
+  --red: #AB3838;
+  --brown: #82562B;
+  --yellow: #636321;
+  --olive: #476B23;
+  --green: #257025;
+  --teal: #246E49;
+  --cyan: #236B6B;
+  --azure: #326496;
+  --blue: #4141C4;
+  --violet: #7F3FBF;
+  --magenta: #9C339C;
+  --purple: #A6376E;
   --gray: #616161;
 
 
@@ -537,6 +537,15 @@ main {
 }
 
 .biblist li { margin-bottom: 15px; }
+
+.biblist .bibitem .entry-number {
+  display: inline-block;
+  width: 1.5rem;
+} 
+
+.biblist .bibitem > div {
+  margin-left: 1.5rem;
+}
 
 
 

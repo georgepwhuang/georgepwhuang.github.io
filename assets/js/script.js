@@ -253,6 +253,23 @@ function findAux(container) {
       }
     });
   });
+
+  applyReverseManuscriptNumbering(container);
+}
+
+function applyReverseManuscriptNumbering(container) {
+  const entries = Array.from(container.querySelectorAll(".bibitem"));
+  const total = entries.length;
+
+  entries.forEach((entry, index) => {
+    entry.querySelector(".entry-number")?.remove();
+
+    const title = entry.querySelector("h4");
+    if (!title) return;
+
+    const number = total - index;
+    title.insertAdjacentHTML("afterbegin", `<span class="entry-number">${number}. </span>`);
+  });
 }
 
 const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
