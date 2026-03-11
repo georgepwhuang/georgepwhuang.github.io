@@ -354,16 +354,14 @@ function toggleNews() {
 const TALK_TYPE_BADGES = {
   "Invited Talk": "var(--red)",
   "Seminar": "var(--azure)",
-  "Contributed Talk": "var(--violet)",
-  "Poster": "var(--orange-yellow-crayola)"
+  "Contributed Talk": "var(--yellow)"
 };
 
 const TALK_TYPE_PILL = {
   "Invited Talk": "Invited",
   "Seminar": "Seminar",
-  "Contributed Talk": "Contrib",
-  "Poster": "Poster"
-};
+  "Contributed Talk": "Contrib"
+}
 
 const SCHOOL_TYPE_BADGES = {
   "NUS": "var(--nus-orange)",
@@ -406,7 +404,7 @@ function renderTalkOccurrence(talk) {
   const color = TALK_TYPE_BADGES[talk.type] ?? "var(--light-gray)";
   return `
     <li class="talk-occurrence">
-      <span class="badge" style="background-color:${color};">${pill}</span>
+      <span class="badge" style="background-color:${color};">${pill}</span> 
       ${talk.venue}
       · ${toDateString(talk.date)}</span>
     </li>

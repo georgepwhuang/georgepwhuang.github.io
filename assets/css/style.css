@@ -65,23 +65,16 @@
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --nav-bar: hsla(240, 1%, 17%, 0.95);
 
-  --red: #AB3838;
+  --red: #922F2F;
   --brown: #82562B;
-  --yellow: #636321;
-  --olive: #476B23;
-  --green: #257025;
+  --yellow: #9A7414;
   --teal: #246E49;
-  --cyan: #236B6B;
-  --azure: #326496;
-  --blue: #4141C4;
-  --violet: #7F3FBF;
-  --magenta: #9C339C;
-  --purple: #A6376E;
-  --gray: #616161;
+  --azure: #2E5F8A;
+  --gray: #646A71;
 
 
-  --nus-orange: #D86F00;
-  --oxford-navy: #2C5F8A;
+  --nus-orange: #C95E00;
+  --oxford-navy: #234B75;
   /**
    * typography
    */
@@ -2236,6 +2229,15 @@ article.active {
   --light-gray: #333; /*main-text*/
   --light-gray-70: rgb(96, 96, 96); /*side-bar-logo*/
   --nav-bar:  hsla(0, 0%, 98%, 0.95);
+
+  --red: #8B2C2C;
+  --brown: #7A4E2A;
+  --yellow: #9C720F;
+  --teal: #2C6B3F;
+  --azure: #25639B;
+  --oxford-navy: #1C4468;
+  --nus-orange: #B85600;
+  --gray: #4F545A;
 
   --bg-gradient-onyx: linear-gradient(
     to bottom right,
