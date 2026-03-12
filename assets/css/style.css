@@ -376,7 +376,15 @@ body { background: var(--smoky-black); color: var(--light-gray);}
 }
 
 .talk-occurrence .badge { 
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
   width: 5em;
+}
+
+.talk-occurrence {
+  position: relative;
+  padding-left: 4.25rem;
 }
 
 
@@ -531,8 +539,15 @@ main {
 
 .biblist li { margin-bottom: 15px; }
 
+.biblist .bibitem h4 {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
 .biblist .bibitem .entry-number {
-  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 1.5rem;
 } 
 
