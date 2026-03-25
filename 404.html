@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>404 | Po-Wei George Huang</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/assets/css/solid.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,700&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      const lightModeKey = "light-mode";
+      const storedMode = localStorage.getItem(lightModeKey);
+      const useLightMode = storedMode
+        ? storedMode === "enabled"
+        : window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+
+      if (useLightMode) {
+        document.documentElement.classList.add("light-mode");
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.toggle("light-mode", useLightMode);
+      });
+    })();
+  </script>
+
+  <style>
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    main.error-shell {
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: var(--smoky-black);
+    }
+
+    .error-card {
+      width: min(680px, 100%);
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 20px;
+      box-shadow: var(--shadow-2);
+      padding: 36px 30px;
+      text-align: center;
+    }
+
+    .site-identity {
+      margin-bottom: 20px;
+    }
+
+    .site-name {
+      color: var(--white-2);
+      font-size: var(--fs-3);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .site-role {
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      font-family: "Roboto Mono", monospace;
+    }
+    
+    .error-code {
+      color: var(--orange-yellow-crayola);
+      font-family: "Roboto Mono", monospace;
+      font-size: clamp(2.4rem, 9vw, 4.8rem);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .error-title {
+      color: var(--white-2);
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-family: "Roboto Slab", serif;
+      margin-bottom: 12px;
+    }
+
+    .error-text {
+      color: var(--light-gray-70);
+      font-size: var(--fs-5);
+      font-family: "Roboto Slab", serif;
+      line-height: 1.7;
+      max-width: 54ch;
+      margin: 0 auto 26px;
+    }
+
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-link {
+      border: 1px solid var(--onyx);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: var(--fs-6);
+      font-weight: 500;
+      transition: var(--transition-1);
+    }
+
+    .btn-link:hover {
+      background: var(--vegas-gold);
+      color: var(--eerie-black-2);
+      border-color: transparent;
+    }
+
+    @media (max-width: 480px) {
+      .error-card {
+        padding: 28px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-shell">
+    <div class="error-card">
+      <div class="site-identity">
+        <p class="site-name">Po-Wei Huang</p>
+        <p class="site-role">DPhil Candidate, University of Oxford</p>
+      </div>
+
+      <p class="error-code">404</p>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-text">
+        The page you requested could not be found.<br>
+        It may have moved, or the link might be out of date.
+      </p>
+
+      <div class="error-actions">
+        <a class="btn-link" href="/">Go To Homepage</a>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
